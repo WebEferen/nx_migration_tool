@@ -1,0 +1,20 @@
+---
+applications:
+    - name: sap-fixtures-api
+      docker:
+          image: ((nexontisfixturesapi))
+          username: ((dhuser))
+      memory: 2GB
+      disk_quota: 4GB
+      instances: 1
+      timeout: 180
+      routes:
+          - route: papm-fixtures-api.cfapps.sap.hana.ondemand.com
+      services:
+          - applogs
+      env:
+          NODE_ENV: prod
+          GIT_USERNAME: ((gitusername))
+          GIT_PASSWORD: ((gitpassword))
+          BASIC_AUTH_USER: ((basicauthuser))
+          BASIC_AUTH_PASS: ((basicauthpass))

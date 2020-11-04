@@ -1,0 +1,43 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.rulers": [80],
+    "editor.trimAutoWhitespace": true,
+    "files.exclude": {
+        "**/.idea": true,
+        "**/.git": true
+    },
+    "files.watcherExclude": {
+        "**/.idea": true,
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true
+    },
+    "javascript.preferences.quoteStyle": "single",
+    "npm.packageManager": "yarn",
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    // extension settings
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "material-icon-theme.activeIconPack": "nest",
+    "todo-tree.general.tags": ["eslint-disable", "TODO", "FIXME"],
+    "todo-tree.highlights.customHighlight": {
+        "eslint-disable": {
+            "icon": "issue-opened",
+            "iconColour": "#ffd700",
+            "type": "text-and-comment",
+            "background": "red",
+            "foreground": "yellow"
+        }
+    }
+}
