@@ -1,6 +1,8 @@
+import { CommonConfigService, ConfigModule } from '@modules/config';
+import { SpreadsheetModule } from '@modules/spreadsheet';
+import { WorkbookModule } from '@modules/workbook';
 import { Module } from '@nestjs/common';
 import { LoggerModule } from 'nestjs-pino';
-import { CommonConfigService, ConfigModule } from 'src/modules/config';
 
 @Module({
     imports: [
@@ -16,8 +18,8 @@ import { CommonConfigService, ConfigModule } from 'src/modules/config';
                 };
             },
         }),
+        SpreadsheetModule,
+        WorkbookModule,
     ],
 })
-export class AppModule {
-
-}
+export class AppModule {}

@@ -1,9 +1,9 @@
+import { CommonConfigService, ConfigModule } from '@modules/config';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { json, urlencoded } from 'express';
 import basicAuth from 'express-basic-auth';
 import { Logger } from 'nestjs-pino';
-import { CommonConfigService, ConfigModule } from 'src/modules/config';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './filters/exception.filter';
 
@@ -24,7 +24,6 @@ async function bootstrap() {
             }),
         );
     }
-
     app.setGlobalPrefix(API_PREFIX);
     app.useGlobalFilters(new HttpExceptionFilter(logger));
     app.useGlobalPipes(

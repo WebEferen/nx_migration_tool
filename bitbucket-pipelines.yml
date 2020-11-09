@@ -1,0 +1,77 @@
+definitions:
+    steps:
+        - step: &lint-step
+              name: Lint
+              image: node:12
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - yarn lint
+
+        - step: &build-step
+              name: Build
+              image: node:12
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - yarn build
+              artifacts:
+                  - dist/**
+        - step: &docker-build-step
+              name: Docker build
+              image: governmentpaas/cf-cli
+              services:
+                  - docker
+              caches:
+                  - docker
+              script:
+                  # Spreadsheet service
+                  - export DOCKER_IMAGE=nexontis/spreadsheets-service
+                  # Build Docker image
+                  - docker login --username $DH_USER --password $DH_PASS
+                  - |
+                      docker build \
+                      -f docker/scp/Dockerfile \
+                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT \
+                      -t $DOCKER_IMAGE:latest .
+                  - docker push $DOCKER_IMAGE
+
+        - step: &docker-deploy-step
+              name: Deploy
+              image: governmentpaas/cf-cli
+              services:
+                  - docker
+              caches:
+                  - docker
+              script:
+                  # Spreadsheet service
+                  - export DOCKER_IMAGE=nexontis/spreadsheets-service
+                  # Deploy to SAP Cloud Platform
+                  - cf api https://api.cf.sap.hana.ondemand.com
+                  - export CF_ORGANIZATION='PaPM'
+                  - export CF_SPACE='PaPM'
+                  - cf login -u $CF_USER -p $CF_PASS -o "$CF_ORGANIZATION" -s "$CF_SPACE"
+                  - |
+                      CF_DOCKER_PASSWORD=$DH_PASS cf push \
+                      --var nexontis-spreadsheets-api=$DOCKER_IMAGE:$BITBUCKET_COMMIT \
+                      --var dh-user=$DH_USER \
+                      --var basic-auth-user=$BASIC_AUTH_USER \
+                      --var basic-auth-pass=$BASIC_AUTH_PASS \
+                      --var spreadjs-licence-key=$SPREADJS_LICENCE_KEY
+
+pipelines:
+    default:
+        - step: *lint-step
+        - step: *build-step
+
+    branches:
+        master:
+            - step: *lint-step
+            - step: *build-step
+            - step: *docker-build-step
+            - step: *docker-deploy-step
+
+options:
+    max-time: 30

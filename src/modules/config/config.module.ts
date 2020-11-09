@@ -19,12 +19,7 @@ import { CommonConfigService } from './config.service';
             validationSchema: Joi.object({
                 // Common variables
                 NODE_ENV: Joi.string().valid('dev', 'prod', 'test').default('dev'),
-                APP_PORT: Joi.number().default(3000),
-
-                // Repository variables
-                GIT_USERNAME: Joi.string().required(),
-                GIT_PASSWORD: Joi.string().required(),
-                GIT_POOL_INTERVAL: Joi.number().default(3600000), // 1h
+                APP_PORT: Joi.number().default(5002),
 
                 // Authentication
                 BASIC_AUTH_USER: Joi.string().when('NODE_ENV', {
@@ -37,6 +32,9 @@ import { CommonConfigService } from './config.service';
                     then: Joi.required(),
                     otherwise: Joi.optional(),
                 }),
+
+                // SpreadJS
+                SPREADJS_LICENCE_KEY: Joi.string().required(),
             }),
         }),
     ],

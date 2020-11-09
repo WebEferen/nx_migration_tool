@@ -1,7 +1,7 @@
 import { agent } from './utils';
 
 describe('Dummy test', () => {
-    describe('/api/ (GET)', () => {
+    describe('/api/spredsheet/calculate (GET)', () => {
         it('should respond with status 200', async () => {
             // given
 

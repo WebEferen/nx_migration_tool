@@ -1,1 +1,2 @@
-export { UnauthorizedException } from './unauthorized.exception';
+export { DataException } from './data.exception';
+export { WorkbookException } from './workbook.exception';

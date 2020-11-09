@@ -14,19 +14,16 @@ export class CommonConfigService {
             port: this.configService.get<number>('APP_PORT'),
         };
     }
-
-    public get git() {
-        return {
-            userName: this.configService.get<string>('GIT_USERNAME'),
-            password: this.configService.get<string>('GIT_PASSWORD'),
-            poolInterval: Number(this.configService.get<number>('GIT_POOL_INTERVAL')),
-        };
-    }
-
     public get auth() {
         return {
             userName: this.configService.get<string>('BASIC_AUTH_USER'),
             password: this.configService.get<string>('BASIC_AUTH_PASS'),
+        };
+    }
+
+    public get sheet() {
+        return {
+            licenceKey: this.configService.get<string>('SPREADJS_LICENCE_KEY'),
         };
     }
 }

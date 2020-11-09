@@ -1,20 +1,19 @@
 ---
 applications:
-    - name: sap-fixtures-api
+    - name: sap-spreadsheets-api
       docker:
-          image: ((nexontisfixturesapi))
-          username: ((dhuser))
+          image: ((nexontis-spreadsheets-api))
+          username: ((dh-user))
       memory: 2GB
-      disk_quota: 4GB
+      disk_quota: 2GB
       instances: 1
       timeout: 180
       routes:
-          - route: papm-fixtures-api.cfapps.sap.hana.ondemand.com
+          - route: papm-spreadsheets-api.cfapps.sap.hana.ondemand.com
       services:
           - applogs
       env:
           NODE_ENV: prod
-          GIT_USERNAME: ((gitusername))
-          GIT_PASSWORD: ((gitpassword))
-          BASIC_AUTH_USER: ((basicauthuser))
-          BASIC_AUTH_PASS: ((basicauthpass))
+          BASIC_AUTH_USER: ((basic-auth-user))
+          BASIC_AUTH_PASS: ((basic-auth-pass))
+          SPREADJS_LICENCE_KEY: ((spreadjs-licence-key))

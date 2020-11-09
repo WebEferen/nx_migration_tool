@@ -1,4 +1,4 @@
-# PaPM Spreadsheet Service (WIP)
+# PaPM Spreadsheet Service
 
 ### Prerequisites
 
