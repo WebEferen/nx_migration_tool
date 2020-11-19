@@ -1,7 +1,7 @@
 import { DataException, WorkbookException } from '@exceptions';
 import GC from '@grapecity/spread-sheets';
 import { CommonConfigService } from '@modules/config';
-import { DataTable } from '@modules/spreadsheet/types';
+import { DataTable, FlatDataRow } from '@modules/spreadsheet/types';
 import { Injectable } from '@nestjs/common';
 import { Dictionary, range } from 'lodash';
 import { Workbook } from './types';
@@ -22,7 +22,7 @@ export class WorkbookService {
         GC.Spread.Sheets.LicenseKey = this.configService.sheet.licenceKey;
     }
 
-    public initTablesData(inputData: DataTable) {
+    public initTablesData(inputData: DataTable<FlatDataRow>) {
         inputData.forEach(({ name, data }) => {
             const [tableName, sheet] = this.findSheetByTable(name);
             const table = sheet && sheet.tables.findByName(tableName);

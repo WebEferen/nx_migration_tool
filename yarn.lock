@@ -340,10 +340,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@grapecity/spread-sheets@13.2.3":
-  version "13.2.3"
-  resolved "https://registry.yarnpkg.com/@grapecity/spread-sheets/-/spread-sheets-13.2.3.tgz#581a558d9e02199d9d948d84230a34364cef0dcb"
-  integrity sha512-g8bEGWRMqj0jWaYTJKXscALo+TqEXo/y+sMZlK7NnRTfAQ5qxVubN4OnG57zlzEFWzhO0lU6TtVHgCLO3VksBA==
+"@grapecity/spread-sheets@14.0.1":
+  version "14.0.1"
+  resolved "https://registry.yarnpkg.com/@grapecity/spread-sheets/-/spread-sheets-14.0.1.tgz#db42f25fd0904cdedbf76aedf075269c7ed958f4"
+  integrity sha512-Bs5mQp0ah5/OTggoiDkSZN3moUUibB4yn7ms4F4d1zu1mj2v53Uyd5a30zX84oletju4voRaf+n/wLamJfzbWA==
 
 "@hapi/address@^4.0.1", "@hapi/address@^4.1.0":
   version "4.1.0"
