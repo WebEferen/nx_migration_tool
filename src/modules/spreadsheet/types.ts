@@ -1,13 +1,8 @@
-import { Dictionary, NumericDictionary } from 'lodash';
+import { Dictionary } from 'lodash';
 
-export type InputDataRow = {
+export type DataRow = {
     name: string;
     data: Dictionary<unknown>[];
 };
 
-export type FlatDataRow = {
-    name: string;
-    data: NumericDictionary<unknown>[];
-};
-
-export type DataTable<T> = Array<T>;
+export type DataTable = Array<DataRow>;

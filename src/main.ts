@@ -6,6 +6,7 @@ import basicAuth from 'express-basic-auth';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './filters/exception.filter';
+import { setupSwagger } from './swagger';
 
 const API_PREFIX = '/api';
 
@@ -23,6 +24,9 @@ async function bootstrap() {
                 challenge: true,
             }),
         );
+    }
+    if (configService.common.isDev || configService.common.isTest) {
+        setupSwagger(app);
     }
     app.setGlobalPrefix(API_PREFIX);
     app.useGlobalFilters(new HttpExceptionFilter(logger));
@@ -42,4 +46,4 @@ async function bootstrap() {
     logger.log(`Application is running on: ${await app.getUrl()}`);
 }
 
-bootstrap();
+(() => bootstrap())();

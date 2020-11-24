@@ -24,12 +24,14 @@
         "**/@types/node": "^12.12.37"
     },
     "dependencies": {
+        "@grapecity/spread-excelio": "14.0.2",
         "@grapecity/spread-sheets": "14.0.1",
         "@hapi/joi": "17.1.1",
         "@nestjs/common": "7.4.4",
         "@nestjs/config": "0.5.0",
         "@nestjs/core": "7.4.4",
         "@nestjs/platform-express": "7.4.4",
+        "@nestjs/swagger": "4.7.5",
         "browser-env": "3.3.0",
         "canvas": "2.6.1",
         "class-transformer": "0.3.1",
@@ -42,7 +44,8 @@
         "nestjs-pino": "1.2.0",
         "pino-pretty": "4.3.0",
         "reflect-metadata": "0.1.13",
-        "rxjs": "6.6.3"
+        "rxjs": "6.6.3",
+        "swagger-ui-express": "4.1.5"
     },
     "devDependencies": {
         "@nestjs/cli": "^7.5.1",

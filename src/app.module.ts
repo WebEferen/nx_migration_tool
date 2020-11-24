@@ -1,6 +1,5 @@
 import { CommonConfigService, ConfigModule } from '@modules/config';
 import { SpreadsheetModule } from '@modules/spreadsheet';
-import { WorkbookModule } from '@modules/workbook';
 import { Module } from '@nestjs/common';
 import { LoggerModule } from 'nestjs-pino';
 
@@ -19,7 +18,6 @@ import { LoggerModule } from 'nestjs-pino';
             },
         }),
         SpreadsheetModule,
-        WorkbookModule,
     ],
 })
 export class AppModule {}
