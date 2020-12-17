@@ -1,7 +1,7 @@
-import Joi from '@hapi/joi';
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { existsSync } from 'fs-extra';
+import Joi from 'joi';
 import { CommonConfigService } from './config.service';
 
 @Module({
