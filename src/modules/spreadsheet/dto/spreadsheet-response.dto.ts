@@ -3,5 +3,5 @@ import { Dictionary } from 'lodash';
 
 export class SpreadsheetResponseDto {
     @ApiProperty()
-    data: Dictionary<unknown>[];
+    data: Dictionary<string>[];
 }

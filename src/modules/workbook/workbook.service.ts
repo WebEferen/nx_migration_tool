@@ -3,8 +3,8 @@ import GC from '@grapecity/spread-sheets';
 import { CommonConfigService } from '@modules/config';
 import { DataTable } from '@modules/spreadsheet/types';
 import { Injectable } from '@nestjs/common';
-import { Dictionary, isNull, isObject, range } from 'lodash';
-import { Workbook } from './types';
+import { Dictionary, range } from 'lodash';
+import { ITableCoordinates, Workbook } from './types';
 
 export const RESULT_TABLE = '_RESULT';
 export const FALLBACK_TABLE = '_INPUT';
@@ -36,9 +36,27 @@ export class WorkbookService {
             const table = this.findTableByName(name);
 
             if (sheet && table) {
-                this.adjustTableSizeAndInsertData(table, sheet, data);
+                const tableCoordinates = this.getPredictedTableCoordinatesForInputData(table, data.length);
+                const processedData = this.getProcessedData(data);
+
+                sheet.suspendPaint(); // for optimization purpose
+                this.resizeTable(sheet, table, tableCoordinates);
+                this.setFormattersAndFormulas(sheet, tableCoordinates);
+                this.insertData(sheet, processedData, tableCoordinates);
+                sheet.resumePaint();
             }
         });
+    }
+
+    /**
+     * Set new table range and data rows count based on new coordinates
+     */
+    private resizeTable(sheet: GC.Spread.Sheets.Worksheet, table: GC.Spread.Sheets.Tables.Table, tableCoordinates: ITableCoordinates) {
+        const { tableRowStartingIndex, tableColumnStartingIndex, dataRowsCount, tableColumnsCount, dataRowStartingIndex } = tableCoordinates;
+        const newTableRange = new GC.Spread.Sheets.Range(tableRowStartingIndex, tableColumnStartingIndex, dataRowsCount, tableColumnsCount);
+
+        sheet.setRowCount(dataRowStartingIndex + dataRowsCount); // Important: needs to be set before resize(); It sets the right number of rows in the sheet (table index position in sheet + data count)
+        sheet.tables.resize(table, newTableRange);
     }
 
     public getCalculatedResults() {
@@ -47,11 +65,14 @@ export class WorkbookService {
         const table = sheet.tables.findByName(tableName);
         const { tableRowStartingIndex, tableColumnsCount, dataRowStartingIndex, tableRowsCount } = this.getResultTableCoordinates(table);
 
+        // Filter only rows which has some non-empty values
+        const isNotEmptyRow = (row: { name: string; value: string }[]) => row.some(({ value }) => value !== '' && value !== '#N/A');
+
         // Fill all table rows and columns based on table coordinates using range(rows) and range(cols)
         const data = range(dataRowStartingIndex, tableRowsCount)
             .map((rowIndex) => range(tableColumnsCount).map((columnIndex) => this.getCellData(sheet, rowIndex, columnIndex, tableRowStartingIndex)))
-            .filter((group) => group.some(({ value }) => !isNull(value) && !isObject(value))) // Filter only rows which has some non-empty values
-            .map((group) => group.reduce<Dictionary<unknown>>((acc, { name, value }) => ({ ...acc, [name]: value }), {}));
+            .filter((row) => isNotEmptyRow(row))
+            .map((row) => row.reduce<Dictionary<string>>((acc, { name, value }) => ({ ...acc, [name]: value }), {}));
 
         return { data };
     }
@@ -76,33 +97,49 @@ export class WorkbookService {
     }
 
     private getCellData = (sheet: GC.Spread.Sheets.Worksheet, dataRowIndex: number, dataColIndex: number, tableHeaderRowIndex: number) => {
-        const name = sheet.getCell(tableHeaderRowIndex, dataColIndex).value() as string;
-        const value = sheet.getCell(dataRowIndex, dataColIndex).value() as unknown;
+        const name = sheet.getValue(tableHeaderRowIndex, dataColIndex) as string; // get column name
+        const value = sheet.getText(dataRowIndex, dataColIndex);
         return { name, value };
     };
 
-    private adjustTableSizeAndInsertData(table: GC.Spread.Sheets.Tables.Table, sheet: GC.Spread.Sheets.Worksheet, data: Dictionary<unknown>[]) {
-        const {
-            tableRowStartingIndex,
-            tableColumnStartingIndex,
-            tableColumnsCount,
-            dataRowStartingIndex,
-            dataRowsCount,
-        } = this.getPredictedTableCoordinatesForInputData(table, data);
-
-        sheet.suspendPaint(); // for optimization purpose
-        sheet.setRowCount(dataRowStartingIndex + dataRowsCount); // sets the right number of rows in the sheet (table index position in sheet + data count)
-
-        const newTableRange = new GC.Spread.Sheets.Range(tableRowStartingIndex, tableColumnStartingIndex, dataRowsCount, tableColumnsCount);
-        sheet.tables.resize(table, newTableRange); // set new table range based on new coordinates
-
-        sheet.setArray(dataRowStartingIndex, tableColumnStartingIndex, this.dataWithoutColumnNames(data)); // insert data starting from first row after table header
-        sheet.resumePaint();
+    private insertData(sheet: GC.Spread.Sheets.Worksheet, data: unknown[][], tableCoordinates: ITableCoordinates) {
+        const { tableColumnStartingIndex, dataRowStartingIndex } = tableCoordinates;
+        sheet.setArray(dataRowStartingIndex, tableColumnStartingIndex, data); // insert data starting from first row after table header
     }
 
-    private getPredictedTableCoordinatesForInputData(table: GC.Spread.Sheets.Tables.Table, data: Dictionary<unknown>[]) {
+    /**
+     * Set formatters and formulas for all table rows and columns based on table coordinates using range(rows) and range(cols)
+     */
+    private setFormattersAndFormulas(sheet: GC.Spread.Sheets.Worksheet, tableCoordinates: ITableCoordinates) {
+        const sheetArea = GC.Spread.Sheets.SheetArea.viewport;
+        const { tableColumnsCount, tableColumnStartingIndex, dataRowStartingIndex, dataRowsCount } = tableCoordinates;
+        const cellFormatters = range(tableColumnStartingIndex, tableColumnsCount).map((columnIndex) =>
+            sheet.getFormatter(dataRowStartingIndex, columnIndex, sheetArea),
+        );
+        const mainFormulas = range(tableColumnStartingIndex, tableColumnsCount).map((columnIndex) =>
+            sheet.getFormula(dataRowStartingIndex, columnIndex, sheetArea),
+        );
+
+        range(dataRowStartingIndex, dataRowsCount).forEach((rowIndex) =>
+            range(tableColumnStartingIndex, tableColumnsCount).forEach((columnIndex) => {
+                const cellFormatter = cellFormatters[columnIndex - tableColumnStartingIndex];
+                const mainFormula = mainFormulas[columnIndex - tableColumnStartingIndex];
+                let cellFormula = sheet.getFormula(rowIndex, columnIndex, sheetArea);
+
+                if (cellFormula !== mainFormula) {
+                    // TODO report a warning about the inconsistent cell formulas within one column and send it back with the response
+                    cellFormula = cellFormula ?? mainFormula; // if cell formula is empty than get the formula from the first row
+                }
+                sheet.setFormula(rowIndex, columnIndex, cellFormula, sheetArea);
+                sheet.setFormatter(rowIndex, columnIndex, cellFormatter, sheetArea);
+            }),
+        );
+    }
+
+    private getPredictedTableCoordinatesForInputData(table: GC.Spread.Sheets.Tables.Table, dataSize: number) {
         const coordinates = this.getResultTableCoordinates(table);
-        const dataRowsCount = coordinates.dataRowStartingIndex + data.length; // overall data rows number based on table position
+        const dataRowsCount = coordinates.dataRowStartingIndex + dataSize; // overall data rows number based on table position
+
         return {
             ...coordinates,
             dataRowsCount,
@@ -122,7 +159,7 @@ export class WorkbookService {
         };
     }
 
-    private dataWithoutColumnNames(data: Dictionary<unknown>[]) {
+    private getProcessedData(data: Dictionary<unknown>[]) {
         return data.map((value) => Object.values(value));
     }
 

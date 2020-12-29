@@ -5,43 +5,43 @@
             "data": [
                 {
                     "GLACC": "A1",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 987.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A2",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 876.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A3",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 765.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A4",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 654.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A5",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 543.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A6",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 2.0,
                     "CURRENCY": "EUR"
                 },
                 {
                     "GLACC": "A7",
-                    "FISCYEARPER": "20200330",
+                    "FISCYEARPER": "2020-03-30",
                     "AMOUNT": 2.0,
                     "CURRENCY": "EUR"
                 }

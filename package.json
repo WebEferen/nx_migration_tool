@@ -24,7 +24,7 @@
         "**/@types/node": "^12.12.37"
     },
     "dependencies": {
-        "@grapecity/spread-sheets": "14.0.3",
+        "@grapecity/spread-sheets": "14.0.4",
         "@nestjs/common": "7.4.4",
         "@nestjs/config": "0.5.0",
         "@nestjs/core": "7.4.4",

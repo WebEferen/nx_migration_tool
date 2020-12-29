@@ -4,58 +4,63 @@
             "name": "_INPUT",
             "data": [
                 {
-                    "GLACC": "A1",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 987.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL1",
+                    "FA": "FA1",
+                    "CC": "CC1",
+                    "N1": 100.0
                 },
                 {
-                    "GLACC": "A2",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 876.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL1",
+                    "FA": "FA1",
+                    "CC": "CC2",
+                    "N1": 200.0
                 },
                 {
-                    "GLACC": "A3",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 765.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL1",
+                    "FA": "FA2",
+                    "CC": "CC1",
+                    "N1": 300.0
                 },
                 {
-                    "GLACC": "A4",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 654.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL1",
+                    "FA": "FA2",
+                    "CC": "CC2",
+                    "N1": 400.0
                 },
                 {
-                    "GLACC": "A5",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 543.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL2",
+                    "FA": "FA1",
+                    "CC": "CC1",
+                    "N1": 500.0
                 },
                 {
-                    "GLACC": "A6",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 2.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL2",
+                    "FA": "FA1",
+                    "CC": "CC2",
+                    "N1": 600.0
                 },
                 {
-                    "GLACC": "A7",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 2.0,
-                    "CURRENCY": "EUR"
+                    "GLACC": "GL2",
+                    "FA": "FA2",
+                    "CC": "CC1",
+                    "N1": 700.0
+                },
+                {
+                    "GLACC": "GL2",
+                    "FA": "FA2",
+                    "CC": "CC2",
+                    "N1": 800.0
                 }
             ]
         }
     ],
     "workbook": {
-        "version": "14.0.2",
+        "version": "14.0.3",
         "docProps": {
             "docPropsCore": {
-                "creator": "GFaerber",
                 "lastModifiedBy": "Marek Ganko",
-                "created": "2020-10-07T02:15:05Z",
-                "modified": "2020-11-24T16:18:22Z"
+                "created": "2020-12-28T21:03:09Z",
+                "modified": "2020-12-28T21:03:09Z"
             },
             "docPropsApp": {
                 "TotalTime": "0",
@@ -63,7 +68,7 @@
                 "DocSecurity": "0",
                 "ScaleCrop": "false",
                 "HeadingPairs": {
-                    "size": 4,
+                    "size": 2,
                     "baseType": "variant",
                     "workbookInfoArray": [
                         {
@@ -72,273 +77,315 @@
                         },
                         {
                             "elementType": "vt:i4",
-                            "value": "2"
-                        },
-                        {
-                            "elementType": "vt:lpstr",
-                            "value": "Named Ranges"
-                        },
-                        {
-                            "elementType": "vt:i4",
                             "value": "3"
                         }
                     ]
                 },
                 "TitlesOfParts": {
-                    "size": 5,
+                    "size": 3,
                     "baseType": "lpstr",
-                    "sheetsNameArray": [
-                        "Inputs 1",
-                        "Inputs 2",
-                        "_xlcn.WorksheetConnection_Mappe1MTDRV1",
-                        "_xlcn.WorksheetConnection_Mappe1MTGLD1",
-                        "GLACC"
-                    ]
+                    "sheetsNameArray": ["Parameters", "Input", "Lookup"]
                 },
-                "Company": "",
                 "LinksUpToDate": "false",
                 "SharedDoc": "false",
                 "HyperlinksChanged": "false",
                 "AppVersion": "16.0300"
             }
         },
-        "sheetCount": 2,
+        "sheetCount": 3,
         "tabStripRatio": 0.6,
+        "iterativeCalculation": false,
+        "iterativeCalculationMaximumIterations": 100,
+        "iterativeCalculationMaximumChange": 0.001,
         "customList": [],
         "activeSheetIndex": 1,
         "sheets": {
-            "Inputs 1": {
-                "name": "Inputs 1",
+            "Parameters": {
+                "name": "Parameters",
                 "isSelected": false,
-                "rowCount": 6,
-                "columnCount": 5,
-                "activeCol": 4,
-                "zoomFactor": 1.5,
-                "theme": {
-                    "name": "Office",
-                    "themeColor": {
-                        "name": "Office",
-                        "background1": {
-                            "a": 255,
-                            "r": 255,
-                            "g": 255,
-                            "b": 255
-                        },
-                        "background2": {
-                            "a": 255,
-                            "r": 231,
-                            "g": 230,
-                            "b": 230
-                        },
-                        "text1": {
-                            "a": 255,
-                            "r": 0,
-                            "g": 0,
-                            "b": 0
-                        },
-                        "text2": {
-                            "a": 255,
-                            "r": 68,
-                            "g": 84,
-                            "b": 106
-                        },
-                        "accent1": {
-                            "a": 255,
-                            "r": 68,
-                            "g": 114,
-                            "b": 196
-                        },
-                        "accent2": {
-                            "a": 255,
-                            "r": 237,
-                            "g": 125,
-                            "b": 49
-                        },
-                        "accent3": {
-                            "a": 255,
-                            "r": 165,
-                            "g": 165,
-                            "b": 165
-                        },
-                        "accent4": {
-                            "a": 255,
-                            "r": 255,
-                            "g": 192,
-                            "b": 0
-                        },
-                        "accent5": {
-                            "a": 255,
-                            "r": 91,
-                            "g": 155,
-                            "b": 213
-                        },
-                        "accent6": {
-                            "a": 255,
-                            "r": 112,
-                            "g": 173,
-                            "b": 71
-                        },
-                        "hyperlink": {
-                            "a": 255,
-                            "r": 5,
-                            "g": 99,
-                            "b": 193
-                        },
-                        "followedHyperlink": {
-                            "a": 255,
-                            "r": 149,
-                            "g": 79,
-                            "b": 114
-                        }
-                    },
-                    "headingFont": "Calibri Light",
-                    "bodyFont": "Calibri"
-                },
+                "rowCount": 2,
+                "columnCount": 3,
+                "activeRow": 1,
+                "activeCol": 1,
+                "theme": "Office",
                 "data": {
                     "dataTable": {
                         "0": {
                             "0": {
-                                "value": "GLACC",
+                                "value": "Parameter",
                                 "style": "__builtInTableStyle0__builtInStyle5"
                             },
                             "1": {
-                                "value": "FISCYEARPER",
+                                "value": "Description",
                                 "style": "__builtInTableStyle0__builtInStyle5"
                             },
                             "2": {
-                                "value": "AMOUNT",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "3": {
-                                "value": "CURRENCY",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": "Formel",
+                                "value": "Value",
                                 "style": "__builtInTableStyle0__builtInStyle5"
                             }
                         },
                         "1": {
                             "0": {
-                                "value": "A1",
-                                "style": "__builtInTableStyle0__builtInStyle5"
+                                "value": "P1",
+                                "style": "__builtInTableStyle1__builtInStyle2"
                             },
                             "1": {
-                                "value": "/OADate(43921)/",
+                                "value": "Parameter 1",
                                 "style": "__builtInTableStyle1__builtInStyle2"
                             },
                             "2": {
-                                "value": 987,
-                                "style": "__builtInTableStyle2__builtInStyle3"
-                            },
-                            "3": {
-                                "value": "EUR",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1974,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
-                            }
-                        },
-                        "2": {
-                            "0": {
-                                "value": "A2",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
+                                "value": 1,
                                 "style": "__builtInTableStyle1__builtInStyle2"
-                            },
-                            "2": {
-                                "value": 876,
-                                "style": "__builtInTableStyle2__builtInStyle3"
-                            },
-                            "3": {
-                                "value": "EUR",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1752,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
-                            }
-                        },
-                        "3": {
-                            "0": {
-                                "value": "A3",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle1__builtInStyle2"
-                            },
-                            "2": {
-                                "value": 765,
-                                "style": "__builtInTableStyle2__builtInStyle3"
-                            },
-                            "3": {
-                                "value": "EUR",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1530,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
-                            }
-                        },
-                        "4": {
-                            "0": {
-                                "value": "A4",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle1__builtInStyle2"
-                            },
-                            "2": {
-                                "value": 654,
-                                "style": "__builtInTableStyle2__builtInStyle3"
-                            },
-                            "3": {
-                                "value": "EUR",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1308,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
-                            }
-                        },
-                        "5": {
-                            "0": {
-                                "value": "A5",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle1__builtInStyle2"
-                            },
-                            "2": {
-                                "value": 543,
-                                "style": "__builtInTableStyle2__builtInStyle3"
-                            },
-                            "3": {
-                                "value": "EUR",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1086,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         }
                     },
                     "defaultDataNode": {
                         "style": {
                             "backColor": null,
-                            "foreColor": "Text 1 0",
-                            "vAlign": 2,
+                            "foreColor": "#000000",
+                            "font": "normal normal 14.7px Calibri",
+                            "themeFont": "Body",
+                            "borderLeft": null,
+                            "borderTop": null,
+                            "borderRight": null,
+                            "borderBottom": null,
+                            "locked": true,
+                            "textIndent": 0,
+                            "wordWrap": false,
+                            "diagonalDown": null,
+                            "diagonalUp": null
+                        }
+                    }
+                },
+                "rowHeaderData": {},
+                "colHeaderData": {},
+                "rows": [
+                    {
+                        "size": 21
+                    },
+                    {
+                        "size": 20
+                    }
+                ],
+                "columns": [
+                    {
+                        "size": 87
+                    },
+                    {
+                        "size": 93
+                    },
+                    {
+                        "size": 57
+                    }
+                ],
+                "leftCellIndex": 0,
+                "topCellIndex": 0,
+                "selections": {
+                    "0": {
+                        "row": 1,
+                        "rowCount": 1,
+                        "col": 1,
+                        "colCount": 1
+                    },
+                    "length": 1
+                },
+                "rowOutlines": {
+                    "items": []
+                },
+                "columnOutlines": {
+                    "items": []
+                },
+                "cellStates": {},
+                "outlineColumnOptions": {},
+                "autoMergeRangeInfos": [],
+                "tables": [
+                    {
+                        "name": "_PARAMETERS",
+                        "row": 0,
+                        "col": 0,
+                        "rowCount": 2,
+                        "colCount": 3,
+                        "style": {
+                            "buildInName": "Medium2"
+                        },
+                        "rowFilter": {
+                            "range": {
+                                "row": 1,
+                                "rowCount": 1,
+                                "col": 0,
+                                "colCount": 3
+                            },
+                            "typeName": "HideRowFilter",
+                            "dialogVisibleInfo": {},
+                            "filterButtonVisibleInfo": {
+                                "0": true,
+                                "1": true,
+                                "2": true
+                            },
+                            "showFilterButton": true
+                        },
+                        "columns": [
+                            {
+                                "id": 1,
+                                "name": "Parameter"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Description"
+                            },
+                            {
+                                "id": 3,
+                                "name": "Value"
+                            }
+                        ]
+                    }
+                ],
+                "index": 0
+            },
+            "Input": {
+                "name": "Input",
+                "isSelected": true,
+                "rowCount": 7,
+                "columnCount": 8,
+                "activeRow": 6,
+                "activeCol": 7,
+                "theme": "Office",
+                "data": {
+                    "dataTable": {
+                        "0": {
+                            "0": {
+                                "value": "GL",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "1": {
+                                "value": "FA",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "2": {
+                                "value": "CC",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "3": {
+                                "value": "N1",
+                                "style": "__builtInTableStyle3__builtInStyle3"
+                            },
+                            "4": {
+                                "value": "PC",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "5": {
+                                "value": "N2",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "6": {
+                                "value": "N3",
+                                "style": "__builtInTableStyle3__builtInStyle3"
+                            }
+                        },
+                        "1": {
+                            "0": {
+                                "value": "GL1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 1,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[[FA]:[PC]],2)"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 11,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        },
+                        "2": {
+                            "0": {
+                                "value": "GL1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC2",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 2,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "LOOKUP(_INPUT[[#This Row], [FA]],MTLU[FA],MTLU[PC])"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 21,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        },
+                        "3": {
+                            "0": {
+                                "value": "GL2",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 5,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "LOOKUP(_INPUT[[#This Row], [FA]],MTLU[FA],MTLU[PC])"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 51,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        }
+                    },
+                    "defaultDataNode": {
+                        "style": {
+                            "backColor": null,
+                            "foreColor": "#000000",
                             "font": "normal normal 14.7px Calibri",
                             "themeFont": "Body",
                             "borderLeft": null,
@@ -367,38 +414,29 @@
                     },
                     {
                         "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
                     }
                 ],
                 "columns": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
                     {
-                        "size": 90
-                    },
-                    {
-                        "size": 100
+                        "size": 64
                     }
                 ],
                 "leftCellIndex": 0,
                 "topCellIndex": 0,
                 "selections": {
                     "0": {
-                        "row": 0,
+                        "row": 6,
                         "rowCount": 1,
-                        "col": 4,
+                        "col": 7,
                         "colCount": 1
                     },
                     "length": 1
-                },
-                "defaults": {
-                    "colHeaderRowHeight": 20,
-                    "colWidth": 80,
-                    "rowHeaderColWidth": 40,
-                    "rowHeight": 20
                 },
                 "rowOutlines": {
                     "items": []
@@ -414,17 +452,17 @@
                         "name": "_INPUT",
                         "row": 0,
                         "col": 0,
-                        "rowCount": 6,
-                        "colCount": 5,
+                        "rowCount": 4,
+                        "colCount": 7,
                         "style": {
-                            "buildInName": "Light8"
+                            "buildInName": "Medium2"
                         },
                         "rowFilter": {
                             "range": {
                                 "row": 1,
-                                "rowCount": 5,
+                                "rowCount": 3,
                                 "col": 0,
-                                "colCount": 5
+                                "colCount": 7
                             },
                             "typeName": "HideRowFilter",
                             "dialogVisibleInfo": {},
@@ -433,375 +471,105 @@
                                 "1": true,
                                 "2": true,
                                 "3": true,
-                                "4": true
+                                "4": true,
+                                "5": true,
+                                "6": true
                             },
                             "showFilterButton": true
                         },
                         "columns": [
                             {
                                 "id": 1,
-                                "name": "GLACC"
+                                "name": "GL"
                             },
                             {
                                 "id": 2,
-                                "name": "FISCYEARPER"
+                                "name": "FA"
                             },
                             {
                                 "id": 3,
-                                "name": "AMOUNT"
+                                "name": "CC"
                             },
                             {
                                 "id": 4,
-                                "name": "CURRENCY"
+                                "name": "N1"
                             },
                             {
                                 "id": 5,
-                                "name": "Formel",
-                                "dataAreaFormula": "_INPUT[[#This Row], [AMOUNT]]*2"
+                                "name": "PC"
+                            },
+                            {
+                                "id": 6,
+                                "name": "N2",
+                                "dataAreaFormula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            {
+                                "id": 7,
+                                "name": "N3",
+                                "dataAreaFormula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
                             }
                         ]
                     }
                 ],
-                "index": 0
+                "index": 1
             },
-            "Inputs 2": {
-                "name": "Inputs 2",
-                "isSelected": true,
-                "rowCount": 11,
-                "columnCount": 5,
+            "Lookup": {
+                "name": "Lookup",
+                "isSelected": false,
+                "rowCount": 3,
+                "columnCount": 3,
                 "activeRow": 2,
-                "activeCol": 1,
-                "zoomFactor": 1.59,
-                "theme": {
-                    "name": "Office",
-                    "themeColor": {
-                        "name": "Office",
-                        "background1": {
-                            "a": 255,
-                            "r": 255,
-                            "g": 255,
-                            "b": 255
-                        },
-                        "background2": {
-                            "a": 255,
-                            "r": 231,
-                            "g": 230,
-                            "b": 230
-                        },
-                        "text1": {
-                            "a": 255,
-                            "r": 0,
-                            "g": 0,
-                            "b": 0
-                        },
-                        "text2": {
-                            "a": 255,
-                            "r": 68,
-                            "g": 84,
-                            "b": 106
-                        },
-                        "accent1": {
-                            "a": 255,
-                            "r": 68,
-                            "g": 114,
-                            "b": 196
-                        },
-                        "accent2": {
-                            "a": 255,
-                            "r": 237,
-                            "g": 125,
-                            "b": 49
-                        },
-                        "accent3": {
-                            "a": 255,
-                            "r": 165,
-                            "g": 165,
-                            "b": 165
-                        },
-                        "accent4": {
-                            "a": 255,
-                            "r": 255,
-                            "g": 192,
-                            "b": 0
-                        },
-                        "accent5": {
-                            "a": 255,
-                            "r": 91,
-                            "g": 155,
-                            "b": 213
-                        },
-                        "accent6": {
-                            "a": 255,
-                            "r": 112,
-                            "g": 173,
-                            "b": 71
-                        },
-                        "hyperlink": {
-                            "a": 255,
-                            "r": 5,
-                            "g": 99,
-                            "b": 193
-                        },
-                        "followedHyperlink": {
-                            "a": 255,
-                            "r": 149,
-                            "g": 79,
-                            "b": 114
-                        }
-                    },
-                    "headingFont": "Calibri Light",
-                    "bodyFont": "Calibri"
-                },
+                "activeCol": 2,
+                "theme": "Office",
                 "data": {
                     "dataTable": {
                         "0": {
                             "0": {
-                                "value": "GLACC",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": "FA",
+                                "style": "__builtInTableStyle7__builtInStyle2"
                             },
                             "1": {
-                                "value": "FISCYEARPER",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": "PC",
+                                "style": "__builtInTableStyle7__builtInStyle2"
                             },
                             "2": {
-                                "value": "PRODUCT",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "3": {
-                                "value": "QUANTITY",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "4": {
-                                "value": "UNIT",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": "N2",
+                                "style": "__builtInTableStyle7__builtInStyle2"
                             }
                         },
                         "1": {
                             "0": {
-                                "value": "A1",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": "FA1",
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             },
                             "1": {
-                                "value": "/OADate(43951)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
+                                "value": "PC1",
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             },
                             "2": {
-                                "value": "P1",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 2,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": 10,
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             }
                         },
                         "2": {
                             "0": {
-                                "value": "A1",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": "FA2",
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             },
                             "1": {
-                                "value": "/OADate(43951)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
+                                "value": "PC2",
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             },
                             "2": {
-                                "value": "P2",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 3,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "3": {
-                            "0": {
-                                "value": "A2",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P1",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 4,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "4": {
-                            "0": {
-                                "value": "A2",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P2",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 2,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "5": {
-                            "0": {
-                                "value": "A3",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P1",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 1,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "6": {
-                            "0": {
-                                "value": "A3",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P2",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 2,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "7": {
-                            "0": {
-                                "value": "A4",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P1",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 1,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "8": {
-                            "0": {
-                                "value": "A4",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P2",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 2,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "9": {
-                            "0": {
-                                "value": "A5",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P1",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 1,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            }
-                        },
-                        "10": {
-                            "0": {
-                                "value": "A5",
-                                "style": "__builtInTableStyle3__builtInStyle5"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "2": {
-                                "value": "P2",
-                                "style": "__builtInTableStyle4__builtInStyle2"
-                            },
-                            "3": {
-                                "value": 2,
-                                "style": "__builtInTableStyle5__builtInStyle4"
-                            },
-                            "4": {
-                                "value": "PCS",
-                                "style": "__builtInTableStyle3__builtInStyle5"
+                                "value": 20,
+                                "style": "__builtInTableStyle8__builtInStyle4"
                             }
                         }
                     },
                     "defaultDataNode": {
                         "style": {
                             "backColor": null,
-                            "foreColor": "Text 1 0",
-                            "vAlign": 2,
+                            "foreColor": "#000000",
                             "font": "normal normal 14.7px Calibri",
                             "themeFont": "Body",
                             "borderLeft": null,
@@ -827,47 +595,6 @@
                     },
                     {
                         "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    },
-                    {
-                        "size": 20
-                    }
-                ],
-                "columns": [
-                    {
-                        "size": 91
-                    },
-                    {
-                        "size": 101
-                    },
-                    {
-                        "size": 101
-                    },
-                    {
-                        "size": 77
-                    },
-                    {
-                        "size": 78
                     }
                 ],
                 "leftCellIndex": 0,
@@ -876,16 +603,10 @@
                     "0": {
                         "row": 2,
                         "rowCount": 1,
-                        "col": 1,
+                        "col": 2,
                         "colCount": 1
                     },
                     "length": 1
-                },
-                "defaults": {
-                    "colHeaderRowHeight": 20,
-                    "colWidth": 80,
-                    "rowHeaderColWidth": 40,
-                    "rowHeight": 20
                 },
                 "rowOutlines": {
                     "items": []
@@ -898,57 +619,47 @@
                 "autoMergeRangeInfos": [],
                 "tables": [
                     {
-                        "name": "MTDRV",
+                        "name": "MTLU",
                         "row": 0,
                         "col": 0,
-                        "rowCount": 11,
-                        "colCount": 5,
+                        "rowCount": 3,
+                        "colCount": 3,
                         "style": {
-                            "buildInName": "Dark11"
+                            "buildInName": "Medium2"
                         },
                         "rowFilter": {
                             "range": {
                                 "row": 1,
-                                "rowCount": 10,
+                                "rowCount": 2,
                                 "col": 0,
-                                "colCount": 5
+                                "colCount": 3
                             },
                             "typeName": "HideRowFilter",
                             "dialogVisibleInfo": {},
                             "filterButtonVisibleInfo": {
                                 "0": true,
                                 "1": true,
-                                "2": true,
-                                "3": true,
-                                "4": true
+                                "2": true
                             },
                             "showFilterButton": true
                         },
                         "columns": [
                             {
                                 "id": 1,
-                                "name": "GLACC"
+                                "name": "FA"
                             },
                             {
                                 "id": 2,
-                                "name": "FISCYEARPER"
-                            },
-                            {
-                                "id": 5,
-                                "name": "PRODUCT"
+                                "name": "PC"
                             },
                             {
                                 "id": 3,
-                                "name": "QUANTITY"
-                            },
-                            {
-                                "id": 4,
-                                "name": "UNIT"
+                                "name": "N2"
                             }
                         ]
                     }
                 ],
-                "index": 1
+                "index": 2
             }
         },
         "namedStyles": [
@@ -1316,9 +1027,9 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "font": "normal normal 14.7px Calibri",
                 "themeFont": "Body",
                 "borderLeft": null,
@@ -1419,9 +1130,9 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "font": "normal normal 14.7px Calibri",
                 "themeFont": "Body",
                 "formatter": "General",
@@ -1438,12 +1149,12 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "font": "normal normal 14.7px Calibri",
                 "themeFont": "Body",
-                "formatter": "m/d/yyyy",
+                "formatter": "General",
                 "borderLeft": null,
                 "borderTop": null,
                 "borderRight": null,
@@ -1457,12 +1168,12 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "font": "normal normal 14.7px Calibri",
                 "themeFont": "Body",
-                "formatter": "_-* #,##0.00\\ [$€-407]_-;\\-* #,##0.00\\ [$€-407]_-;_-* \"-\"??\\ [$€-407]_-;_-@_-",
+                "formatter": "General",
                 "borderLeft": null,
                 "borderTop": null,
                 "borderRight": null,
@@ -1476,12 +1187,11 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": null,
                 "hAlign": 3,
-                "vAlign": 2,
-                "font": "normal normal 14.7px Calibri",
-                "themeFont": "Body",
-                "formatter": "0.0",
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
                 "borderLeft": null,
                 "borderTop": null,
                 "borderRight": null,
@@ -1495,9 +1205,9 @@
             },
             {
                 "backColor": null,
-                "foreColor": "Text 1 0",
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "font": "normal normal 14.7px Calibri",
                 "themeFont": "Body",
                 "formatter": "General",
@@ -1513,8 +1223,46 @@
                 "diagonalUp": null
             },
             {
+                "backColor": null,
+                "foreColor": "#000000",
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "#,##0.00",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle6",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "#,##0.00\\ [$USD]",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle7",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
                 "themeFont": "Body",
                 "formatter": "General",
                 "locked": true,
@@ -1526,9 +1274,9 @@
             },
             {
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "themeFont": "Body",
-                "formatter": "m/d/yyyy",
+                "formatter": "General",
                 "locked": true,
                 "textIndent": 0,
                 "wordWrap": false,
@@ -1538,77 +1286,89 @@
             },
             {
                 "hAlign": 3,
-                "vAlign": 2,
-                "themeFont": "Body",
-                "formatter": "_-* #,##0.00\\ [$€-407]_-;\\-* #,##0.00\\ [$€-407]_-;_-* \"-\"??\\ [$€-407]_-;_-@_-",
-                "locked": true,
-                "textIndent": 0,
-                "wordWrap": false,
-                "name": "__builtInTableStyle2__builtInStyle3",
-                "diagonalDown": null,
-                "diagonalUp": null
-            },
-            {
-                "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "themeFont": "Body",
                 "formatter": "General",
                 "locked": true,
                 "textIndent": 0,
                 "wordWrap": false,
-                "name": "__builtInTableStyle3__builtInStyle5",
+                "name": "__builtInTableStyle2__builtInStyle2",
                 "diagonalDown": null,
                 "diagonalUp": null
             },
             {
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "themeFont": "Body",
-                "formatter": "m/d/yyyy",
+                "formatter": "General",
                 "locked": true,
                 "textIndent": 0,
                 "wordWrap": false,
-                "name": "__builtInTableStyle4__builtInStyle2",
+                "name": "__builtInTableStyle3__builtInStyle3",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "foreColor": null,
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle4__builtInStyle4",
                 "diagonalDown": null,
                 "diagonalUp": null
             },
             {
                 "hAlign": 3,
-                "vAlign": 2,
+                "vAlign": 0,
                 "themeFont": "Body",
-                "formatter": "0.0",
+                "formatter": "#,##0.00",
                 "locked": true,
                 "textIndent": 0,
                 "wordWrap": false,
-                "name": "__builtInTableStyle5__builtInStyle4",
+                "name": "__builtInTableStyle5__builtInStyle6",
                 "diagonalDown": null,
                 "diagonalUp": null
-            }
-        ],
-        "names": [
-            {
-                "name": "_xlcn.WorksheetConnection_Mappe1MTDRV1",
-                "formula": "MTDRV[]",
-                "row": 0,
-                "col": 0
             },
             {
-                "name": "_xlcn.WorksheetConnection_Mappe1MTGLD1",
-                "formula": "_INPUT[]",
-                "row": 0,
-                "col": 0
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "#,##0.00\\ [$USD]",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle6__builtInStyle7",
+                "diagonalDown": null,
+                "diagonalUp": null
             },
             {
-                "name": "_xlcn.WorksheetConnection_Mappe1MTPLD1",
-                "formula": "MTPLD",
-                "row": 0,
-                "col": 0
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle7__builtInStyle2",
+                "diagonalDown": null,
+                "diagonalUp": null
             },
             {
-                "name": "GLACC",
-                "formula": "_INPUT[[#Headers], [GLACC]]",
-                "row": 0,
-                "col": 0
+                "foreColor": null,
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle8__builtInStyle4",
+                "diagonalDown": null,
+                "diagonalUp": null
             }
         ]
     }

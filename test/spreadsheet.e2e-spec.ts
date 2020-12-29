@@ -1,10 +1,9 @@
 import { agent } from './utils';
+import fallbackPayloadWithCellFormulas from './__fixtures__/payload-fallback-with-cell-formulas.fixture.json';
 import fallbackPayloadWithDislocatedTable from './__fixtures__/payload-fallback-with-dislocated-table-workbook.fixture.json';
 import fallbackPayload from './__fixtures__/payload-fallback-workbook.fixture.json';
 import fullPayload from './__fixtures__/payload-full-workbook.fixture.json';
 import invalidPayload from './__fixtures__/payload-invalid-workbook.fixture.json';
-import fallbackResults from './__fixtures__/results-fallback-workbook.fixture.json';
-import fullResults from './__fixtures__/results-full-workbook.fixture.json';
 
 describe('Spreadsheet calculation', () => {
     describe('/api/spreadsheet/calculate (POST)', () => {
@@ -20,7 +19,7 @@ describe('Spreadsheet calculation', () => {
                 .expect(200)
                 .then<any>(({ body }) => body);
 
-            expect(results).toEqual(fallbackResults);
+            expect(results).toMatchSnapshot();
         });
 
         it('should correctly calculate formulas from dislocated _INPUT table based on input and lookup data', async () => {
@@ -35,7 +34,7 @@ describe('Spreadsheet calculation', () => {
                 .expect(200)
                 .then<any>(({ body }) => body);
 
-            expect(results).toEqual(fallbackResults);
+            expect(results).toMatchSnapshot();
         });
 
         it('should correctly calculate formulas from _RESULT table based on input and lookup data', async () => {
@@ -50,7 +49,7 @@ describe('Spreadsheet calculation', () => {
                 .expect(200)
                 .then<any>(({ body }) => body);
 
-            expect(results).toEqual(fullResults);
+            expect(results).toMatchSnapshot();
         });
 
         it('should fail with "400 Bad Request" when sending empty payload', async () => {
@@ -83,6 +82,21 @@ describe('Spreadsheet calculation', () => {
 
             // then
             await response.expect(422);
+        });
+
+        it('should correctly return data based on _INPUT table with many formulas and formatters', async () => {
+            // given
+
+            // when
+            const response = agent.post(`/api/spreadsheet/calculate`).send(fallbackPayloadWithCellFormulas);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .then<any>(({ body }) => body);
+
+            expect(results).toMatchSnapshot();
         });
     });
 });
