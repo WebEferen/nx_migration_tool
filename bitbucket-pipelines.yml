@@ -73,6 +73,20 @@ definitions:
                       --var basic-auth-pass=$BASIC_AUTH_PASS \
                       --var spreadjs-licence-key=$SPREADJS_LICENCE_KEY
 
+        - step: &deploy-papm-cloud-eu10-step
+              name: Deploy to prod-dev EU10
+              image: governmentpaas/cf-cli
+              script:
+                  - export REGION="eu10"
+                  - export CF_SPACE="prod-dev"
+                  - PIPELINE="deploy-spreadsheets-pipeline" envsubst < ci/trigger-papm-cloud-provider.template.json > ci/trigger-papm-cloud-provider-deploy-spreadsheets.json
+                  - |
+                      curl https://api.bitbucket.org/2.0/repositories/nexontis/papm-cloud-provider/pipelines/ \
+                          --verbose --fail \
+                          --user "${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD}" \
+                          --header 'Content-Type: application/json' \
+                          --data @ci/trigger-papm-cloud-provider-deploy-spreadsheets.json
+
 pipelines:
     default:
         - step: *lint-step
@@ -85,7 +99,9 @@ pipelines:
             - step: *build-step
             - step: *e2e-step
             - step: *docker-build-step
-            - step: *docker-deploy-step
+            - parallel:
+                  - step: *docker-deploy-step
+                  - step: *deploy-papm-cloud-eu10-step
 
 options:
     max-time: 30
