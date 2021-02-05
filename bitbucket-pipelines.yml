@@ -2,7 +2,7 @@ definitions:
     steps:
         - step: &lint-step
               name: Lint
-              image: node:12
+              image: node:14.15.4
               caches:
                   - node
               script:
@@ -11,7 +11,7 @@ definitions:
 
         - step: &build-step
               name: Build
-              image: node:12
+              image: node:14.15.4
               caches:
                   - node
               script:
@@ -22,7 +22,7 @@ definitions:
 
         - step: &e2e-step
               name: E2E tests
-              image: node:12
+              image: node:14.15.4
               caches:
                   - node
               script:
@@ -33,7 +33,6 @@ definitions:
 
         - step: &docker-build-step
               name: Docker build
-              image: governmentpaas/cf-cli
               services:
                   - docker
               caches:
@@ -48,6 +47,14 @@ definitions:
                       -f docker/scp/Dockerfile \
                       -t $DOCKER_IMAGE:$BITBUCKET_COMMIT \
                       -t $DOCKER_IMAGE:latest .
+
+        - step: &docker-publish-step
+              name: Docker publish
+              services:
+                  - docker
+              caches:
+                  - docker
+              script:
                   - docker push $DOCKER_IMAGE
 
         - step: &docker-deploy-step
@@ -97,8 +104,10 @@ pipelines:
         master:
             - step: *lint-step
             - step: *build-step
-            - step: *e2e-step
-            - step: *docker-build-step
+            - parallel:
+                  - step: *e2e-step
+                  - step: *docker-build-step
+            - step: *docker-publish-step
             - parallel:
                   - step: *docker-deploy-step
                   - step: *deploy-papm-cloud-eu10-step
