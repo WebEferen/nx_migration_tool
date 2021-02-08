@@ -33,12 +33,12 @@ definitions:
 
         - step: &docker-build-step
               name: Docker build
+              image: governmentpaas/cf-cli
               services:
                   - docker
               caches:
                   - docker
               script:
-                  # Build Docker image
                   - |
                       docker build \
                       -f docker/scp/Dockerfile \
@@ -47,6 +47,7 @@ definitions:
 
         - step: &docker-publish-step
               name: Docker publish
+              image: governmentpaas/cf-cli
               services:
                   - docker
               caches:
