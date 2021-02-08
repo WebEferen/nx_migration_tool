@@ -4,7 +4,7 @@ applications:
       docker:
           image: ((nexontis-spreadsheets-api))
           username: ((dh-user))
-      memory: 2GB
+      memory: 4GB
       disk_quota: 2GB
       instances: 1
       timeout: 180
