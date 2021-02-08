@@ -32,22 +32,7 @@ definitions:
                   - yarn start-test 'node -r browser-env/register dist/main' :5002/api/ 'yarn test:e2e --ci --logHeapUsage --reporters="default" --reporters="jest-junit"'
 
         - step: &docker-build-step
-              name: Docker build
-              image: governmentpaas/cf-cli
-              services:
-                  - docker
-              caches:
-                  - docker
-              script:
-                  # Build Docker image
-                  - |
-                      docker build \
-                      -f docker/scp/Dockerfile \
-                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT \
-                      -t $DOCKER_IMAGE:latest .
-
-        - step: &docker-publish-step
-              name: Docker publish
+              name: Docker build and publish
               image: governmentpaas/cf-cli
               services:
                   - docker
@@ -55,15 +40,18 @@ definitions:
                   - docker
               script:
                   - docker login --username $DH_USER --password $DH_PASS
+                  # Build Docker image
+                  - |
+                      docker build \
+                      -f docker/scp/Dockerfile \
+                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT \
+                      -t $DOCKER_IMAGE:latest .
+                  # Publish Docker image
                   - docker push $DOCKER_IMAGE
 
         - step: &docker-deploy-step
               name: Deploy
               image: governmentpaas/cf-cli
-              services:
-                  - docker
-              caches:
-                  - docker
               script:
                   # Deploy to SAP Cloud Platform
                   - cf api https://api.cf.sap.hana.ondemand.com
@@ -102,10 +90,8 @@ pipelines:
         master:
             - step: *lint-step
             - step: *build-step
-            - parallel:
-                  - step: *e2e-step
-                  - step: *docker-build-step
-            - step: *docker-publish-step
+            - step: *e2e-step
+            - step: *docker-build-step
             - parallel:
                   - step: *docker-deploy-step
                   - step: *deploy-papm-cloud-eu10-step
