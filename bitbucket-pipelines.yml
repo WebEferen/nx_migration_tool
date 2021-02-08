@@ -39,6 +39,7 @@ definitions:
               caches:
                   - docker
               script:
+                  # Build Docker image
                   - |
                       docker build \
                       -f docker/scp/Dockerfile \
