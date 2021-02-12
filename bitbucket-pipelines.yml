@@ -41,13 +41,14 @@ definitions:
               script:
                   - docker login --username $DH_USER --password $DH_PASS
                   # Build Docker image
+                  - export DOCKER_EXTRA_IMAGE=$([ "$BITBUCKET_BRANCH" == "master" ] && echo "$DOCKER_IMAGE:latest" || echo "")
+                  - export DOCKER_EXTRA_ARGUMENTS=$([ -n "$DOCKER_EXTRA_IMAGE" ] && echo "-t $DOCKER_EXTRA_IMAGE" || echo "")
                   - |
                       docker build \
                       -f docker/scp/Dockerfile \
-                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT \
-                      -t $DOCKER_IMAGE:latest .
+                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT ${DOCKER_EXTRA_ARGUMENTS} .
                   # Publish Docker image
-                  - docker push $DOCKER_IMAGE
+                  - docker push $DOCKER_IMAGE:$BITBUCKET_COMMIT ${DOCKER_EXTRA_IMAGE}
 
         - step: &docker-deploy-step
               name: Deploy
@@ -95,6 +96,15 @@ pipelines:
             - parallel:
                   - step: *docker-deploy-step
                   - step: *deploy-papm-cloud-eu10-step
+
+    custom:
+        build:
+            - step: *build-step
+            - step: *docker-build-step
+        deploy:
+            - step: *build-step
+            - step: *docker-build-step
+            - step: *docker-deploy-step
 
 options:
     max-time: 30

@@ -1,3 +1,10 @@
+try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+    require('@dynatrace/oneagent')();
+} catch (e) {
+    console.warn(`OneAgent: ${e.message}`);
+}
+
 import { CommonConfigService, ConfigModule } from '@modules/config';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';

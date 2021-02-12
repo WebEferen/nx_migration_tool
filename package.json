@@ -12,7 +12,7 @@
         "start": "nest start -e \"node -r browser-env/register\"",
         "start:debug": "nest start --debug --watch -e \"node -r browser-env/register\"",
         "start:dev": "nest start --watch -e \"node -r browser-env/register\"",
-        "start:prod": "NODE_ENV=prod node -r browser-env/register dist/main",
+        "start:prod": "node -r browser-env/register dist/main",
         "test": "cross-env NODE_ENV=test jest",
         "test:cov": "cross-env NODE_ENV=test jest --coverage",
         "test:debug": "cross-env NODE_ENV=test node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
@@ -21,6 +21,7 @@
         "test:watch": "cross-env NODE_ENV=test jest --watch"
     },
     "dependencies": {
+        "@dynatrace/oneagent": "1.207.242-1.0.0",
         "@grapecity/spread-sheets": "14.0.6",
         "@nestjs/common": "7.6.11",
         "@nestjs/config": "0.6.3",

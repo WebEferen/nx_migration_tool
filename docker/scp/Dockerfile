@@ -12,6 +12,7 @@ COPY yarn.lock .
 RUN yarn install --production --non-interactive
 COPY dist dist
 
+ENV NODE_ENV "prod"
 ENV APP_PORT "5002"
 ENV SPREADJS_LICENCE_KEY $SPREADJS_LICENCE_KEY
 
