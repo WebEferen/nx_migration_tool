@@ -39,16 +39,7 @@ definitions:
               caches:
                   - docker
               script:
-                  - docker login --username $DH_USER --password $DH_PASS
-                  # Build Docker image
-                  - export DOCKER_EXTRA_IMAGE=$([ "$BITBUCKET_BRANCH" == "master" ] && echo "$DOCKER_IMAGE:latest" || echo "")
-                  - export DOCKER_EXTRA_ARGUMENTS=$([ -n "$DOCKER_EXTRA_IMAGE" ] && echo "-t $DOCKER_EXTRA_IMAGE" || echo "")
-                  - |
-                      docker build \
-                      -f docker/scp/Dockerfile \
-                      -t $DOCKER_IMAGE:$BITBUCKET_COMMIT ${DOCKER_EXTRA_ARGUMENTS} .
-                  # Publish Docker image
-                  - docker push $DOCKER_IMAGE:$BITBUCKET_COMMIT ${DOCKER_EXTRA_IMAGE}
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/7XRaGM/files/docker_build_push.sh) docker/scp/Dockerfile
 
         - step: &docker-deploy-step
               name: Deploy
