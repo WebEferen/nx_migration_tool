@@ -39,5 +39,37 @@
             "background": "red",
             "foreground": "yellow"
         }
-    }
+    },
+    "cSpell.words": [
+        "Middlewares",
+        "SPREADJS",
+        "apiurl",
+        "clientid",
+        "clientsecret",
+        "dynatrace",
+        "envsubst",
+        "governmentpaas",
+        "grapecity",
+        "identityzone",
+        "identityzoneid",
+        "nestjs",
+        "nexontis",
+        "oneagent",
+        "packagejson",
+        "papm",
+        "pino",
+        "sburl",
+        "subaccountid",
+        "tenantid",
+        "tenantmode",
+        "trustedclientidsuffix",
+        "uaadomain",
+        "vcap",
+        "verificationkey",
+        "xsappname",
+        "xsenv",
+        "xssec",
+        "xsuaa",
+        "zoneid"
+    ]
 }

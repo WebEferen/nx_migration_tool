@@ -1,4 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
 import { Test, TestingModule } from '@nestjs/testing';
+import { WorkbookModule } from './workbook.module';
 import { WorkbookService } from './workbook.service';
 
 describe('WorkbookService', () => {
@@ -6,7 +10,7 @@ describe('WorkbookService', () => {
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [WorkbookService],
+            imports: [WorkbookModule],
         }).compile();
 
         provider = module.get<WorkbookService>(WorkbookService);
@@ -15,4 +19,6 @@ describe('WorkbookService', () => {
     it('should be defined', () => {
         expect(provider).toBeDefined();
     });
+
+    // TODO create unit tests for WorkbookService
 });

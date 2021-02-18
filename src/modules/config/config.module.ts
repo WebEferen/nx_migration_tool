@@ -1,3 +1,4 @@
+import { AuthMethod } from '@modules/auth/types';
 import { Module } from '@nestjs/common';
 import { ConfigModule as NestConfigModule } from '@nestjs/config';
 import { existsSync } from 'fs-extra';
@@ -22,6 +23,7 @@ import { CommonConfigService } from './config.service';
                 APP_PORT: Joi.number().default(5002),
 
                 // Authentication
+                AUTH_METHOD: Joi.string().valid(...Object.values(AuthMethod)),
                 BASIC_AUTH_USER: Joi.string().when('NODE_ENV', {
                     is: Joi.equal('prod'),
                     then: Joi.required(),

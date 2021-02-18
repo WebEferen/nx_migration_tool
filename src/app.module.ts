@@ -1,7 +1,10 @@
+import { AuthModule } from '@modules/auth';
 import { CommonConfigService, ConfigModule } from '@modules/config';
 import { SpreadsheetModule } from '@modules/spreadsheet';
 import { Module } from '@nestjs/common';
+import { APP_GUARD } from '@nestjs/core';
 import { LoggerModule } from 'nestjs-pino';
+import { ScopesGuard } from './guards/scopes.guard';
 
 @Module({
     imports: [
@@ -18,6 +21,14 @@ import { LoggerModule } from 'nestjs-pino';
             },
         }),
         SpreadsheetModule,
+        ConfigModule,
+        AuthModule,
+    ],
+    providers: [
+        {
+            provide: APP_GUARD,
+            useClass: ScopesGuard,
+        },
     ],
 })
 export class AppModule {}

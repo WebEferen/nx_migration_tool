@@ -9,6 +9,20 @@ definitions:
                   - yarn install --non-interactive
                   - yarn lint
 
+        - step: &test-step
+              name: Unit tests
+              image: node:14.15.4
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - export JEST_JUNIT_OUTPUT_DIR='test-reports'
+                  - yarn test:cov --ci --runInBand --logHeapUsage --reporters="default" --reporters="jest-junit"
+
+        - parallel: &validate-commit-step
+              - step: *lint-step
+              - step: *test-step
+
         - step: &build-step
               name: Build
               image: node:14.15.4
@@ -29,7 +43,8 @@ definitions:
                   - export NODE_OPTIONS="--max_old_space_size=2560"
                   - export JEST_JUNIT_OUTPUT_DIR='test-reports'
                   - yarn install --non-interactive
-                  - yarn start-test 'node -r browser-env/register dist/main' :5002/api/ 'yarn test:e2e --ci --logHeapUsage --reporters="default" --reporters="jest-junit"'
+                  # E2E tests with JWT authentication
+                  - yarn start-test 'VCAP_SERVICES=$(cat test/e2e/__fixtures__/vcap-services.json) yarn start:prod' :5002/api 'yarn test:e2e --ci --logHeapUsage'
 
         - step: &docker-build-step
               name: Docker build and publish
@@ -72,21 +87,23 @@ definitions:
                           --header 'Content-Type: application/json' \
                           --data @ci/trigger-papm-cloud-provider-deploy-spreadsheets.json
 
+        - parallel: &deploy-step
+              - step: *docker-deploy-step
+              - step: *deploy-papm-cloud-eu10-step
+
 pipelines:
     default:
-        - step: *lint-step
+        - parallel: *validate-commit-step
         - step: *build-step
         - step: *e2e-step
 
     branches:
         master:
-            - step: *lint-step
+            - parallel: *validate-commit-step
             - step: *build-step
             - step: *e2e-step
             - step: *docker-build-step
-            - parallel:
-                  - step: *docker-deploy-step
-                  - step: *deploy-papm-cloud-eu10-step
+            - parallel: *deploy-step
 
     custom:
         build:

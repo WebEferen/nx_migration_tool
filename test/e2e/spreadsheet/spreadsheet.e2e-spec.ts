@@ -1,4 +1,4 @@
-import { agent } from './utils';
+import { agent, generateTokenForXsuaa } from '../utils';
 import fallbackPayloadWithCellFormulas from './__fixtures__/payload-fallback-with-cell-formulas.fixture.json';
 import fallbackPayloadWithDislocatedTable from './__fixtures__/payload-fallback-with-dislocated-table-workbook.fixture.json';
 import fallbackPayload from './__fixtures__/payload-fallback-workbook.fixture.json';
@@ -7,11 +7,15 @@ import invalidPayload from './__fixtures__/payload-invalid-workbook.fixture.json
 
 describe('Spreadsheet calculation', () => {
     describe('/api/spreadsheet/calculate (POST)', () => {
+        const tokenPayload = { cid: '12345', azp: '12345', zid: 'tenant-id' };
+        const validTokenWithoutScope = generateTokenForXsuaa(tokenPayload);
+        const validToken = generateTokenForXsuaa({ scope: ['papm.run_calculation'], ...tokenPayload });
+
         it('should correctly calculate formulas from _INPUT table based on input and lookup data', async () => {
             // given
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(fallbackPayload);
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(fallbackPayload);
 
             // then
             const results = await response
@@ -26,7 +30,10 @@ describe('Spreadsheet calculation', () => {
             // given
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(fallbackPayloadWithDislocatedTable);
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(fallbackPayloadWithDislocatedTable);
 
             // then
             const results = await response
@@ -41,7 +48,7 @@ describe('Spreadsheet calculation', () => {
             // given
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(fullPayload);
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(fullPayload);
 
             // then
             const results = await response
@@ -57,7 +64,7 @@ describe('Spreadsheet calculation', () => {
             const emptyPayload = {};
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(emptyPayload);
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(emptyPayload);
 
             // then
             await response.expect(400);
@@ -65,10 +72,10 @@ describe('Spreadsheet calculation', () => {
 
         it('should fail with "400 Bad Request" when sending invalid input data', async () => {
             // given
-            const payloadWithInvalidinputData = { data: '', workbook: '' };
+            const payloadWithInvalidInputData = { data: '', workbook: '' };
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(payloadWithInvalidinputData);
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(payloadWithInvalidInputData);
 
             // then
             await response.expect(400);
@@ -78,7 +85,7 @@ describe('Spreadsheet calculation', () => {
             // given
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(invalidPayload);
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(invalidPayload);
 
             // then
             await response.expect(422);
@@ -88,7 +95,10 @@ describe('Spreadsheet calculation', () => {
             // given
 
             // when
-            const response = agent.post(`/api/spreadsheet/calculate`).send(fallbackPayloadWithCellFormulas);
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(fallbackPayloadWithCellFormulas);
 
             // then
             const results = await response
@@ -97,6 +107,33 @@ describe('Spreadsheet calculation', () => {
                 .then<any>(({ body }) => body);
 
             expect(results).toMatchSnapshot();
+        });
+
+        it('should fail when token is not valid', async () => {
+            // given
+            const invalidAuthToken = Buffer.from('FOOBAR').toString('base64');
+
+            // when
+            const request = agent
+                .post('/api/spreadsheet/calculate')
+                .set('Authorization', `Bearer ${invalidAuthToken}`)
+                .send(fallbackPayloadWithCellFormulas);
+
+            //then
+            await request.expect(401);
+        });
+
+        it('should return "Forbidden resource" when unauthorized', async () => {
+            // given
+
+            // when
+            const request = agent
+                .post('/api/spreadsheet/calculate')
+                .set('Authorization', `Bearer ${validTokenWithoutScope}`)
+                .send(fallbackPayloadWithCellFormulas);
+
+            //then
+            await request.expect(403);
         });
     });
 });

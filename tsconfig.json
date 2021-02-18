@@ -18,7 +18,8 @@
             "@decorators": ["src/decorators"],
             "@exceptions": ["src/exceptions"],
             "@interceptors": ["src/interceptors"],
-            "@modules/*": ["src/modules/*"]
+            "@modules/*": ["src/modules/*"],
+            "@guards": ["src/guards"]
         },
         "skipLibCheck": false
     },

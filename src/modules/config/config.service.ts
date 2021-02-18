@@ -1,5 +1,10 @@
+import { AuthMethod, IServiceTypeXsuaa } from '@modules/auth/types';
 import { Injectable } from '@nestjs/common';
 import { ConfigService as NestConfigService } from '@nestjs/config';
+import { getServices } from '@sap/xsenv';
+import { IXsuaaService } from '@sap/xssec';
+
+const XSUAA_SERVICE_NAME = 'xsuaa-papm-broker';
 
 @Injectable()
 export class CommonConfigService {
@@ -15,9 +20,13 @@ export class CommonConfigService {
         };
     }
     public get auth() {
+        const user = this.configService.get<string>('BASIC_AUTH_USER');
+        const pass = this.configService.get<string>('BASIC_AUTH_PASS');
+
         return {
-            userName: this.configService.get<string>('BASIC_AUTH_USER'),
-            password: this.configService.get<string>('BASIC_AUTH_PASS'),
+            user,
+            pass,
+            method: this.configService.get<string>('AUTH_METHOD') || this.tryGetDefaultAuthMethod(user, pass),
         };
     }
 
@@ -25,5 +34,25 @@ export class CommonConfigService {
         return {
             licenceKey: this.configService.get<string>('SPREADJS_LICENCE_KEY'),
         };
+    }
+
+    public get xsuaaService(): IXsuaaService {
+        const { xsuaa } = getServices({ xsuaa: XSUAA_SERVICE_NAME }) as IServiceTypeXsuaa;
+        return xsuaa;
+    }
+
+    private tryGetDefaultAuthMethod(user: string, pass: string) {
+        try {
+            this.xsuaaService;
+            return AuthMethod.JWT;
+        } catch {
+            if (user && pass) {
+                return AuthMethod.BASIC;
+            }
+            if (!this.common.isProd) {
+                return AuthMethod.NONE;
+            }
+            throw new Error('Could not detect auth method');
+        }
     }
 }

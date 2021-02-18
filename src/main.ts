@@ -4,12 +4,11 @@ try {
 } catch (e) {
     console.warn(`OneAgent: ${e.message}`);
 }
-
+import { AuthService } from '@modules/auth';
 import { CommonConfigService, ConfigModule } from '@modules/config';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { json, urlencoded } from 'express';
-import basicAuth from 'express-basic-auth';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './filters/exception.filter';
@@ -21,20 +20,16 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     const configService = app.select(ConfigModule).get(CommonConfigService);
     const logger = app.get(Logger);
+    const authService = app.get(AuthService);
 
     app.use(json({ limit: '50mb' }));
     app.use(urlencoded({ extended: true, limit: '50mb' }));
-    if (configService.common.isProd) {
-        app.use(
-            basicAuth({
-                authorizer: (user: string, password: string) => user === configService.auth.userName && password === configService.auth.password,
-                challenge: true,
-            }),
-        );
-    }
+
     if (configService.common.isDev || configService.common.isTest) {
         setupSwagger(app);
     }
+
+    app.use(authService.getMiddlewares());
     app.setGlobalPrefix(API_PREFIX);
     app.useGlobalFilters(new HttpExceptionFilter(logger));
     app.useGlobalPipes(
@@ -51,6 +46,7 @@ async function bootstrap() {
     await app.listen(configService.common.port);
 
     logger.log(`Application is running on: ${await app.getUrl()}`);
+    logger.log(`Authentication method: ${configService.auth.method}`);
 }
 
 (() => bootstrap())();

@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 export function setupSwagger(app: INestApplication) {
     const options = new DocumentBuilder()
         .setTitle('Spreadsheet Service')
-        .setDescription('Spreadhseet Service API documentation')
+        .setDescription('Spreadsheet Service API documentation')
         .setVersion('1.0')
         .addTag('spreadsheet')
         .build();
