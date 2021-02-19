@@ -1,6 +1,6 @@
+import OneAgent from '@dynatrace/oneagent';
 try {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
-    require('@dynatrace/oneagent')();
+    OneAgent();
 } catch (e) {
     console.warn(`OneAgent: ${e.message}`);
 }
