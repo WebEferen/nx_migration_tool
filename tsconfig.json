@@ -21,8 +21,7 @@
             "@modules/*": ["src/modules/*"],
             "@guards": ["src/guards"]
         },
-        "skipLibCheck": false,
-        "typeRoots": ["./src/@types", "./node_modules/@types"]
+        "skipLibCheck": false
     },
     "exclude": ["node_modules", "dist"]
 }
