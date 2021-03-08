@@ -26,7 +26,7 @@ export class CommonConfigService {
         return {
             user,
             pass,
-            method: this.configService.get<string>('AUTH_METHOD') || this.tryGetDefaultAuthMethod(user, pass),
+            method: this.configService.get<string>('AUTH_METHOD') || this.getDefaultAuthMethod(user, pass),
         };
     }
 
@@ -41,7 +41,7 @@ export class CommonConfigService {
         return xsuaa;
     }
 
-    private tryGetDefaultAuthMethod(user: string, pass: string) {
+    private getDefaultAuthMethod(user: string, pass: string) {
         try {
             this.xsuaaService;
             return AuthMethod.JWT;

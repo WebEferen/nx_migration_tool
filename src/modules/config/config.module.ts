@@ -23,16 +23,18 @@ import { CommonConfigService } from './config.service';
                 APP_PORT: Joi.number().default(5002),
 
                 // Authentication
-                AUTH_METHOD: Joi.string().valid(...Object.values(AuthMethod)),
-                BASIC_AUTH_USER: Joi.string().when('NODE_ENV', {
-                    is: Joi.equal('prod'),
+                AUTH_METHOD: Joi.string()
+                    .valid(...Object.values(AuthMethod))
+                    .empty(''),
+                BASIC_AUTH_USER: Joi.string().when('AUTH_METHOD', {
+                    is: AuthMethod.BASIC,
                     then: Joi.required(),
-                    otherwise: Joi.optional(),
+                    otherwise: Joi.optional().empty(''),
                 }),
-                BASIC_AUTH_PASS: Joi.string().when('NODE_ENV', {
-                    is: Joi.equal('prod'),
+                BASIC_AUTH_PASS: Joi.string().when('AUTH_METHOD', {
+                    is: AuthMethod.BASIC,
                     then: Joi.required(),
-                    otherwise: Joi.optional(),
+                    otherwise: Joi.optional().empty(''),
                 }),
 
                 // SpreadJS
