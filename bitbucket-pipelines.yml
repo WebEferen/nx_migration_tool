@@ -19,9 +19,25 @@ definitions:
                   - export JEST_JUNIT_OUTPUT_DIR='test-reports'
                   - yarn test:cov --ci --runInBand --logHeapUsage --reporters="default" --reporters="jest-junit"
 
-        - parallel: &validate-commit-step
+        - step: &whitesource-scan-step
+              name: WhiteSource scan
+              image: nexontis/whitesource:node-15.12.0
+              script:
+                  - |
+                      WS_CONFIG=yarn \
+                      whitesource \
+                          -apiKey $WHITESOURCE_API_KEY \
+                          -userKey $WHITESOURCE_USER_KEY \
+
+        - parallel: &validate-commit-steps
               - step: *lint-step
               - step: *test-step
+              - step:
+                    <<: *whitesource-scan-step
+                    condition:
+                        changesets:
+                            includePaths:
+                                - 'yarn.lock'
 
         - step: &build-step
               name: Build
@@ -93,13 +109,13 @@ definitions:
 
 pipelines:
     default:
-        - parallel: *validate-commit-step
+        - parallel: *validate-commit-steps
         - step: *build-step
         - step: *e2e-step
 
     branches:
         master:
-            - parallel: *validate-commit-step
+            - parallel: *validate-commit-steps
             - step: *build-step
             - step: *e2e-step
             - step: *docker-build-step
@@ -113,6 +129,8 @@ pipelines:
             - step: *build-step
             - step: *docker-build-step
             - step: *docker-deploy-step
+        whitesource-scan:
+            - step: *whitesource-scan-step
 
 options:
     max-time: 30
