@@ -22,8 +22,8 @@ async function bootstrap() {
     const logger = app.get(Logger);
     const authService = app.get(AuthService);
 
-    app.use(json({ limit: '50mb' }));
-    app.use(urlencoded({ extended: true, limit: '50mb' }));
+    app.use(json({ limit: '250mb' }));
+    app.use(urlencoded({ extended: true, limit: '250mb' }));
 
     if (configService.common.isDev || configService.common.isTest) {
         setupSwagger(app);

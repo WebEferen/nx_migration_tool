@@ -1,55 +1,60 @@
 {
-    "data": [
+    "groupedData": [
         {
-            "name": "_INPUT",
-            "data": [
+            "group": "CC4_2021_4000.00_8000.00_12000.00_4.00_4.00_4.00__0.00_",
+            "inputs": [
                 {
-                    "GLACC": "GL1",
-                    "FA": "FA1",
-                    "CC": "CC1",
-                    "N1": 100.0
-                },
-                {
-                    "GLACC": "GL1",
-                    "FA": "FA1",
-                    "CC": "CC2",
-                    "N1": 200.0
-                },
-                {
-                    "GLACC": "GL1",
-                    "FA": "FA2",
-                    "CC": "CC1",
-                    "N1": 300.0
-                },
-                {
-                    "GLACC": "GL1",
-                    "FA": "FA2",
-                    "CC": "CC2",
-                    "N1": 400.0
-                },
-                {
-                    "GLACC": "GL2",
-                    "FA": "FA1",
-                    "CC": "CC1",
-                    "N1": 500.0
-                },
-                {
-                    "GLACC": "GL2",
-                    "FA": "FA1",
-                    "CC": "CC2",
-                    "N1": 600.0
-                },
-                {
-                    "GLACC": "GL2",
-                    "FA": "FA2",
-                    "CC": "CC1",
-                    "N1": 700.0
-                },
-                {
-                    "GLACC": "GL2",
-                    "FA": "FA2",
-                    "CC": "CC2",
-                    "N1": 800.0
+                    "name": "_INPUT",
+                    "data": [
+                        {
+                            "GLACC": "GL1",
+                            "FA": "FA1",
+                            "CC": "CC1",
+                            "N1": 100.0
+                        },
+                        {
+                            "GLACC": "GL1",
+                            "FA": "FA1",
+                            "CC": "CC2",
+                            "N1": 200.0
+                        },
+                        {
+                            "GLACC": "GL1",
+                            "FA": "FA2",
+                            "CC": "CC1",
+                            "N1": 300.0
+                        },
+                        {
+                            "GLACC": "GL1",
+                            "FA": "FA2",
+                            "CC": "CC2",
+                            "N1": 400.0
+                        },
+                        {
+                            "GLACC": "GL2",
+                            "FA": "FA1",
+                            "CC": "CC1",
+                            "N1": 500.0
+                        },
+                        {
+                            "GLACC": "GL2",
+                            "FA": "FA1",
+                            "CC": "CC2",
+                            "N1": 600.0
+                        },
+                        {
+                            "GLACC": "GL2",
+                            "FA": "FA2",
+                            "CC": "CC1",
+                            "N1": 700.0
+                        },
+                        {
+                            "GLACC": "GL2",
+                            "FA": "FA2",
+                            "CC": "CC2",
+                            "N1": 800.0
+                        }
+                    ]
                 }
             ]
         }
@@ -84,7 +89,11 @@
                 "TitlesOfParts": {
                     "size": 3,
                     "baseType": "lpstr",
-                    "sheetsNameArray": ["Parameters", "Input", "Lookup"]
+                    "sheetsNameArray": [
+                        "Parameters",
+                        "Input",
+                        "Lookup"
+                    ]
                 },
                 "LinksUpToDate": "false",
                 "SharedDoc": "false",

@@ -16,7 +16,7 @@ export class SpreadsheetController {
     @HttpCode(HttpStatus.OK)
     @Scopes(Scope.RunCalculation)
     @ApiResponse({ type: SpreadsheetResponseDto })
-    async calculate(@Body() { data, workbook }: SpreadsheetRequestDto): Promise<SpreadsheetResponseDto> {
-        return this.spreadsheetService.calculate(data, workbook);
+    async calculate(@Body() { groupedData, workbook }: SpreadsheetRequestDto): Promise<SpreadsheetResponseDto> {
+        return this.spreadsheetService.calculate(groupedData, workbook);
     }
 }

@@ -1,13 +1,18 @@
 {
-    "data": [
+    "groupedData": [
         {
-            "name": "_INPUT",
-            "data": [
+            "group": "CC4_2021_4000.00_8000.00_12000.00_4.00_4.00_4.00__0.00_",
+            "inputs": [
                 {
-                    "GLACC": "A1",
-                    "FISCYEARPER": "20200330",
-                    "AMOUNT": 987.0,
-                    "CURRENCY": "EUR"
+                    "name": "_INPUT",
+                    "data": [
+                        {
+                            "GLACC": "A1",
+                            "FISCYEARPER": "20200330",
+                            "AMOUNT": 987.0,
+                            "CURRENCY": "EUR"
+                        }
+                    ]
                 }
             ]
         }
@@ -51,7 +56,10 @@
                 "TitlesOfParts": {
                     "size": 2,
                     "baseType": "lpstr",
-                    "sheetsNameArray": ["Inputs 2", "_xlcn.WorksheetConnection_Mappe1MTDRV1"]
+                    "sheetsNameArray": [
+                        "Inputs 2",
+                        "_xlcn.WorksheetConnection_Mappe1MTDRV1"
+                    ]
                 },
                 "Company": "",
                 "LinksUpToDate": "false",

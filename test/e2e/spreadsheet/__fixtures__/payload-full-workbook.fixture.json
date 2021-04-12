@@ -1,112 +1,117 @@
 {
-    "data": [
+    "groupedData": [
         {
-            "name": "_INPUT",
-            "data": [
+            "group": "CC4_2021_4000.00_8000.00_12000.00_4.00_4.00_4.00__0.00_",
+            "inputs": [
                 {
-                    "GLACC": "A1",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 987.0,
-                    "CURRENCY": "EUR"
+                    "name": "_INPUT",
+                    "data": [
+                        {
+                            "GLACC": "A1",
+                            "FISCYEARPER": "2020-03-30",
+                            "AMOUNT": 987.0,
+                            "CURRENCY": "EUR"
+                        },
+                        {
+                            "GLACC": "A2",
+                            "FISCYEARPER": "2020-03-30",
+                            "AMOUNT": 876.0,
+                            "CURRENCY": "EUR"
+                        },
+                        {
+                            "GLACC": "A3",
+                            "FISCYEARPER": "2020-03-30",
+                            "AMOUNT": 765.0,
+                            "CURRENCY": "EUR"
+                        },
+                        {
+                            "GLACC": "A4",
+                            "FISCYEARPER": "2020-03-30",
+                            "AMOUNT": 654.0,
+                            "CURRENCY": "EUR"
+                        },
+                        {
+                            "GLACC": "A5",
+                            "FISCYEARPER": "2020-03-30",
+                            "AMOUNT": 543.0,
+                            "CURRENCY": "EUR"
+                        }
+                    ]
                 },
                 {
-                    "GLACC": "A2",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 876.0,
-                    "CURRENCY": "EUR"
-                },
-                {
-                    "GLACC": "A3",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 765.0,
-                    "CURRENCY": "EUR"
-                },
-                {
-                    "GLACC": "A4",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 654.0,
-                    "CURRENCY": "EUR"
-                },
-                {
-                    "GLACC": "A5",
-                    "FISCYEARPER": "2020-03-30",
-                    "AMOUNT": 543.0,
-                    "CURRENCY": "EUR"
-                }
-            ]
-        },
-        {
-            "name": "MTDRV",
-            "data": [
-                {
-                    "GLACC": "A1",
-                    "FISCYEARPER": "2020-04-30",
-                    "PRODUCT": "P1",
-                    "QUANTITY": 2.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A1",
-                    "FISCYEARPER": "2020-04-30",
-                    "PRODUCT": "P2",
-                    "QUANTITY": 3.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A2",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P1",
-                    "QUANTITY": 4.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A2",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P2",
-                    "QUANTITY": 2.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A3",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P1",
-                    "QUANTITY": 1.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A3",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P2",
-                    "QUANTITY": 2.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A4",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P1",
-                    "QUANTITY": 1.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A4",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P2",
-                    "QUANTITY": 2.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A5",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P1",
-                    "QUANTITY": 1.0,
-                    "UNIT": "PCS"
-                },
-                {
-                    "GLACC": "A5",
-                    "FISCYEARPER": "2020-03-31",
-                    "PRODUCT": "P2",
-                    "QUANTITY": 2.0,
-                    "UNIT": "PCS"
+                    "name": "MTDRV",
+                    "data": [
+                        {
+                            "GLACC": "A1",
+                            "FISCYEARPER": "2020-04-30",
+                            "PRODUCT": "P1",
+                            "QUANTITY": 2.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A1",
+                            "FISCYEARPER": "2020-04-30",
+                            "PRODUCT": "P2",
+                            "QUANTITY": 3.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A2",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P1",
+                            "QUANTITY": 4.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A2",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P2",
+                            "QUANTITY": 2.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A3",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P1",
+                            "QUANTITY": 1.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A3",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P2",
+                            "QUANTITY": 2.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A4",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P1",
+                            "QUANTITY": 1.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A4",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P2",
+                            "QUANTITY": 2.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A5",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P1",
+                            "QUANTITY": 1.0,
+                            "UNIT": "PCS"
+                        },
+                        {
+                            "GLACC": "A5",
+                            "FISCYEARPER": "2020-03-31",
+                            "PRODUCT": "P2",
+                            "QUANTITY": 2.0,
+                            "UNIT": "PCS"
+                        }
+                    ]
                 }
             ]
         }

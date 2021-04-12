@@ -26,7 +26,7 @@ export class WorkbookService {
         try {
             this.workbook.fromJSON(workbook);
         } catch {
-            throw new WorkbookException('Invalid SpreadJS licence');
+            throw new WorkbookException('Invalid Workbook Calculation licence');
         }
     }
 
