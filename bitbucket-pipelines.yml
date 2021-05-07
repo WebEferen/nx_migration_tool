@@ -1,8 +1,9 @@
+image: node:16.0.0-buster
+
 definitions:
     steps:
         - step: &lint-step
               name: Lint
-              image: node:14.15.4
               caches:
                   - node
               script:
@@ -11,7 +12,6 @@ definitions:
 
         - step: &test-step
               name: Unit tests
-              image: node:14.15.4
               caches:
                   - node
               script:
@@ -41,7 +41,6 @@ definitions:
 
         - step: &build-step
               name: Build
-              image: node:14.15.4
               caches:
                   - node
               script:
@@ -52,7 +51,6 @@ definitions:
 
         - step: &e2e-step
               name: E2E tests
-              image: node:14.15.4
               caches:
                   - node
               script:
@@ -64,13 +62,12 @@ definitions:
 
         - step: &docker-build-step
               name: Docker build and publish
-              image: governmentpaas/cf-cli
               services:
                   - docker
               caches:
                   - docker
               script:
-                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/7XRaGM/files/docker_build_push.sh) docker/scp/Dockerfile
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/7XRaGM/files/docker_build_push.sh) Dockerfile
 
         - step: &docker-deploy-step
               name: Deploy

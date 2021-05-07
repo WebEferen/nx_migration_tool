@@ -1,15 +1,13 @@
-FROM node:14.15.4-slim
+FROM node:16.0.0-buster-slim
 
 WORKDIR /app
 
-RUN apt-get update && \
-    apt-get --no-install-recommends -y install ca-certificates libgit2-dev && \
-    rm -rf /var/lib/apt/lists/*
-
 COPY package.json .
 COPY yarn.lock .
+COPY .yarnrc .
 
 RUN yarn install --production --non-interactive
+
 COPY dist dist
 
 ENV NODE_ENV "prod"
