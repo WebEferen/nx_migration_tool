@@ -68,11 +68,20 @@ definitions:
                   - docker
               script:
                   - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/7XRaGM/files/docker_build_push.sh) Dockerfile
+                  # sign Docker image
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/8XA889/files/sign-image.sh) $DOCKER_IMAGE:$BITBUCKET_COMMIT
 
         - step: &docker-deploy-step
               name: Deploy
               image: governmentpaas/cf-cli
+              services:
+                  - docker
+              caches:
+                  - docker
               script:
+                  # Validate that docker image is signed
+                  - docker login --username $DH_USER --password $DH_PASS
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/8XA889/files/validate-image.sh) $DOCKER_IMAGE:$BITBUCKET_COMMIT
                   # Deploy to SAP Cloud Platform
                   - cf api https://api.cf.sap.hana.ondemand.com
                   - export CF_ORGANIZATION='PaPM'
