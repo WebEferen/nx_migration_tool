@@ -355,19 +355,19 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@dynatrace/oneagent-dependency@1.213.155":
-  version "1.213.155"
-  resolved "https://registry.yarnpkg.com/@dynatrace/oneagent-dependency/-/oneagent-dependency-1.213.155.tgz#a8e59016b1c2c3db856bcce6ba66b3bb1218207a"
-  integrity sha512-qnEmtQi6QNtv6a8bplOcwYkEwxql4BXy847HAKQbmpM6hvbGA64gIyTK4XRan3hGEfZHEcDjAtb1pGKUfE5mzA==
+"@dynatrace/oneagent-dependency@1.219.134":
+  version "1.219.134"
+  resolved "https://registry.yarnpkg.com/@dynatrace/oneagent-dependency/-/oneagent-dependency-1.219.134.tgz#c41bdb03a1584d84d89520c79a6fade5e07e93a3"
+  integrity sha512-6p1dYxFF5z12bXWi/R6tQSeF9GNP1qs9n4dkFY8kA2YLmr3vDB+4jyG+qjnmiLUjWMMrQdh/Ovoey+PgQEJk+Q==
   dependencies:
     semver "6.3.0"
 
-"@dynatrace/oneagent@1.213.155-1.0.0":
-  version "1.213.155-1.0.0"
-  resolved "https://registry.yarnpkg.com/@dynatrace/oneagent/-/oneagent-1.213.155-1.0.0.tgz#0976794f52884729099a4e8bf6bd6238bfd37bbd"
-  integrity sha512-aMb0XP99aTpQgKlmVcGg0sleLB67rlD9po8ue4WGvNCEjgZQpPkE/UxtVeldtX/fMI6z7MFy2wqzelW0YOjYJA==
+"@dynatrace/oneagent@1.219.134-1.0.0":
+  version "1.219.134-1.0.0"
+  resolved "https://registry.yarnpkg.com/@dynatrace/oneagent/-/oneagent-1.219.134-1.0.0.tgz#938705c2576c1d4066b539a46cf1e6f4f38ffe95"
+  integrity sha512-ASXhatKLW9YDBANiSFmdQpf1+OMu8DxZmNY0+487DMbyTxnJz1b4yeifgYHnfQChWLk1Zvvq5o8+i+u/pngW4g==
   dependencies:
-    "@dynatrace/oneagent-dependency" "1.213.155"
+    "@dynatrace/oneagent-dependency" "1.219.134"
     debug "^4.3.1"
     then-request "^6.0.2"
 
