@@ -1,7 +1,12 @@
 import { agent, generateTokenForXsuaa } from '../utils';
+import invalidPayloadInputString from './__fixtures__/payload-empty-workbook-input-string.fixture.json';
+import invalidPayloadEmptyWorkbook from './__fixtures__/payload-empty-workbook.fixture.json';
 import fallbackPayloadWithCellFormulas from './__fixtures__/payload-fallback-with-cell-formulas.fixture.json';
 import fallbackPayloadWithDislocatedTable from './__fixtures__/payload-fallback-with-dislocated-table-workbook.fixture.json';
+import fallbackPayloadNoFieldInDataSource from './__fixtures__/payload-fallback-workbook-no-field-in-data-source.fixture.json';
+import fallbackPayloadNoFieldInWorkbook from './__fixtures__/payload-fallback-workbook-no-field-in-workbook.fixture.json';
 import fallbackPayload from './__fixtures__/payload-fallback-workbook.fixture.json';
+import fullPayloadNoFieldInWorkbookResults from './__fixtures__/payload-full-workbook-no-field-in-workbook-results.fixture.json';
 import fullPayload from './__fixtures__/payload-full-workbook.fixture.json';
 import invalidPayload from './__fixtures__/payload-invalid-workbook.fixture.json';
 
@@ -134,6 +139,90 @@ describe('Spreadsheet calculation', () => {
 
             //then
             await request.expect(403);
+        });
+
+        it('should return status 422 for incorrect _INPUT table columns in data source', async () => {
+            // given
+
+            // when
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(fallbackPayloadNoFieldInDataSource);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
+        });
+
+        it('should return status 422 for incorrect _INPUT table columns in workbook', async () => {
+            // given
+
+            // when
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(fallbackPayloadNoFieldInWorkbook);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
+        });
+
+        it('should return status 422 for incorrect _RESULT table columns in workbook', async () => {
+            // given
+
+            // when
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(fullPayloadNoFieldInWorkbookResults);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
+        });
+
+        it('should return status 422 for incorrect data source as string instead of array', async () => {
+            // given
+
+            // when
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(invalidPayloadInputString);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
+        });
+
+        it('should return status 422 when table not found in wokbook', async () => {
+            // given
+
+            // when
+            const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(invalidPayloadEmptyWorkbook);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
         });
     });
 });

@@ -13,7 +13,7 @@ describe('WorkbookService', () => {
             imports: [WorkbookModule],
         }).compile();
 
-        provider = module.get<WorkbookService>(WorkbookService);
+        provider = await module.resolve<WorkbookService>(WorkbookService);
     });
 
     it('should be defined', () => {

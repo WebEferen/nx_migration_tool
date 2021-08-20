@@ -1,0 +1,29 @@
+{
+    "groupedData": [
+        {
+            "group": "",
+            "inputs": [
+                {
+                    "name": "_INPUT",
+                    "data": [
+                        {
+                            "GLACC": "A1",
+                            "FISCYEARPER": "20200330",
+                            "AMOUNT": 987.0,
+                            "CURRENCY": "EUR"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "workbook": {
+        "version": "14.0.2",
+        "docProps": {},
+        "tabStripRatio": 0.6,
+        "customList": [],
+        "sheets": {},
+        "namedStyles": [],
+        "names": []
+    }
+}

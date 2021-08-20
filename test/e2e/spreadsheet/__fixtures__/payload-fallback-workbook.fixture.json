@@ -116,7 +116,7 @@
                 "name": "Inputs 1",
                 "isSelected": false,
                 "rowCount": 6,
-                "columnCount": 5,
+                "columnCount": 4,
                 "activeCol": 4,
                 "zoomFactor": 1.5,
                 "theme": {
@@ -216,10 +216,6 @@
                             },
                             "3": {
                                 "value": "CURRENCY",
-                                "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": "Formel",
                                 "style": "__builtInTableStyle0__builtInStyle5"
                             }
                         },
@@ -420,7 +416,7 @@
                         "row": 0,
                         "col": 0,
                         "rowCount": 6,
-                        "colCount": 5,
+                        "colCount": 4,
                         "style": {
                             "buildInName": "Light8"
                         },
@@ -429,7 +425,7 @@
                                 "row": 1,
                                 "rowCount": 5,
                                 "col": 0,
-                                "colCount": 5
+                                "colCount": 4
                             },
                             "typeName": "HideRowFilter",
                             "dialogVisibleInfo": {},
@@ -458,11 +454,6 @@
                             {
                                 "id": 4,
                                 "name": "CURRENCY"
-                            },
-                            {
-                                "id": 5,
-                                "name": "Formel",
-                                "dataAreaFormula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         ]
                     }

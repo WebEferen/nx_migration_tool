@@ -7,49 +7,42 @@ Object {
       "AMOUNT": " 987.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,974.00 € ",
       "GLACC": "A1",
     },
     Object {
       "AMOUNT": " 876.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,752.00 € ",
       "GLACC": "A2",
     },
     Object {
       "AMOUNT": " 765.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,530.00 € ",
       "GLACC": "A3",
     },
     Object {
       "AMOUNT": " 654.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,308.00 € ",
       "GLACC": "A4",
     },
     Object {
       "AMOUNT": " 543.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,086.00 € ",
       "GLACC": "A5",
     },
     Object {
       "AMOUNT": " 2.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 4.00 € ",
       "GLACC": "A6",
     },
     Object {
       "AMOUNT": " 2.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 4.00 € ",
       "GLACC": "A7",
     },
   ],
@@ -151,49 +144,42 @@ Object {
       "AMOUNT": " 987.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,974.00 € ",
       "GLACC": "A1",
     },
     Object {
       "AMOUNT": " 876.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,752.00 € ",
       "GLACC": "A2",
     },
     Object {
       "AMOUNT": " 765.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,530.00 € ",
       "GLACC": "A3",
     },
     Object {
       "AMOUNT": " 654.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,308.00 € ",
       "GLACC": "A4",
     },
     Object {
       "AMOUNT": " 543.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 1,086.00 € ",
       "GLACC": "A5",
     },
     Object {
       "AMOUNT": " 2.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 4.00 € ",
       "GLACC": "A6",
     },
     Object {
       "AMOUNT": " 2.00 € ",
       "CURRENCY": "EUR",
       "FISCYEARPER": "3/30/2020",
-      "Formel": " 4.00 € ",
       "GLACC": "A7",
     },
   ],
@@ -278,3 +264,13 @@ Object {
   ],
 }
 `;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _INPUT table columns in data source 1`] = `"Fields in table '_INPUT' don't match. Fields ['Formel'] don't exist in data source."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _INPUT table columns in workbook 1`] = `"Fields in table '_INPUT' don't match. Fields ['FISCYEARPER'] don't exist in workbook."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _RESULT table columns in workbook 1`] = `"Fields in table '_RESULT' don't match. Fields ['FISCYEARPER'] don't exist in workbook."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect data source as string instead of array 1`] = `"Input data for table '_INPUT' is not an array, string was passed instead."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when table not found in wokbook 1`] = `"Table '_INPUT' doesn't exist in workbook"`;

@@ -10,4 +10,9 @@ export type DataRow = {
     data: Dictionary<unknown>[];
 };
 
+export type DataHeader = {
+    name: string;
+    fields: string[];
+};
+
 export type DataTable = Array<DataRow>;

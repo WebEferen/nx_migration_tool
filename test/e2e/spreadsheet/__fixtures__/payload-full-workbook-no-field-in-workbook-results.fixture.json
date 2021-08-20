@@ -1088,7 +1088,7 @@
                 "name": "Calculation",
                 "isSelected": true,
                 "rowCount": 26,
-                "columnCount": 9,
+                "columnCount": 8,
                 "activeRow": 10,
                 "activeCol": 8,
                 "zoomFactor": 1.5,
@@ -1185,10 +1185,6 @@
                                 "value": "GLACC",
                                 "style": "__builtInTableStyle6__builtInStyle5"
                             },
-                            "1": {
-                                "value": "FISCYEARPER",
-                                "style": "__builtInTableStyle6__builtInStyle5"
-                            },
                             "2": {
                                 "value": "PRODUCT",
                                 "style": "__builtInTableStyle6__builtInStyle5"
@@ -1215,11 +1211,6 @@
                                 "value": "A1",
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
-                            },
-                            "1": {
-                                "value": "/OADate(43951)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
                             },
                             "2": {
                                 "value": "P2",
@@ -1253,11 +1244,6 @@
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
                             },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
-                            },
                             "2": {
                                 "value": "P1",
                                 "style": "__builtInTableStyle7__builtInStyle2",
@@ -1289,11 +1275,6 @@
                                 "value": "A2",
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
                             },
                             "2": {
                                 "value": "P2",
@@ -1327,11 +1308,6 @@
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
                             },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
-                            },
                             "2": {
                                 "value": "P1",
                                 "style": "__builtInTableStyle7__builtInStyle2",
@@ -1363,11 +1339,6 @@
                                 "value": "A3",
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
                             },
                             "2": {
                                 "value": "P2",
@@ -1401,11 +1372,6 @@
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
                             },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
-                            },
                             "2": {
                                 "value": "P1",
                                 "style": "__builtInTableStyle7__builtInStyle2",
@@ -1437,11 +1403,6 @@
                                 "value": "A4",
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
                             },
                             "2": {
                                 "value": "P2",
@@ -1475,11 +1436,6 @@
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
                             },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
-                            },
                             "2": {
                                 "value": "P1",
                                 "style": "__builtInTableStyle7__builtInStyle2",
@@ -1511,11 +1467,6 @@
                                 "value": "A5",
                                 "style": "__builtInTableStyle6__builtInStyle5",
                                 "formula": "MTDRV[[#This Row], [GLACC]]"
-                            },
-                            "1": {
-                                "value": "/OADate(43921)/",
-                                "style": "__builtInTableStyle7__builtInStyle2",
-                                "formula": "MTDRV[[#This Row], [FISCYEARPER]]"
                             },
                             "2": {
                                 "value": "P2",
@@ -1927,7 +1878,7 @@
                         "row": 1,
                         "col": 0,
                         "rowCount": 25,
-                        "colCount": 7,
+                        "colCount": 6,
                         "style": {
                             "buildInName": "Dark11"
                         },
@@ -1936,7 +1887,7 @@
                                 "row": 2,
                                 "rowCount": 24,
                                 "col": 0,
-                                "colCount": 7
+                                "colCount": 6
                             },
                             "typeName": "HideRowFilter",
                             "dialogVisibleInfo": {},
@@ -1955,10 +1906,6 @@
                             {
                                 "id": 1,
                                 "name": "GLACC"
-                            },
-                            {
-                                "id": 2,
-                                "name": "FISCYEARPER"
                             },
                             {
                                 "id": 5,

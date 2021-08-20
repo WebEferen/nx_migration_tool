@@ -1,15 +1,15 @@
 import { DataException, WorkbookException } from '@exceptions';
 import GC from '@grapecity/spread-sheets';
 import { CommonConfigService } from '@modules/config';
-import { DataTable } from '@modules/spreadsheet/types';
-import { Injectable } from '@nestjs/common';
-import { Dictionary, range } from 'lodash';
+import { DataHeader, DataTable } from '@modules/spreadsheet/types';
+import { Injectable, Scope } from '@nestjs/common';
+import { Dictionary, differenceWith, isArray, isEqual, range } from 'lodash';
 import { ITableCoordinates, Workbook } from './types';
 
 export const RESULT_TABLE = '_RESULT';
 export const FALLBACK_TABLE = '_INPUT';
 
-@Injectable()
+@Injectable({ scope: Scope.REQUEST })
 export class WorkbookService {
     private workbook: Workbook;
 
@@ -31,21 +31,37 @@ export class WorkbookService {
     }
 
     public importData(inputData: DataTable) {
-        inputData.forEach(({ name, data }) => {
+        return inputData.reduce((acc, { name, data }) => {
+            if (!isArray(data)) {
+                throw new DataException(`Input data for table '${name}' is not an array, ${typeof data} was passed instead.`);
+            }
+
             const sheet = this.findSheetByTable(name);
             const table = this.findTableByName(name);
-
-            if (sheet && table) {
-                const tableCoordinates = this.getPredictedTableCoordinatesForInputData(table, data.length);
-                const processedData = this.getProcessedData(data);
-
-                sheet.suspendPaint(); // for optimization purpose
-                this.resizeTable(sheet, table, tableCoordinates);
-                this.setFormattersAndFormulas(sheet, tableCoordinates);
-                this.insertData(sheet, processedData, tableCoordinates);
-                sheet.resumePaint();
+            if (!table || !sheet) {
+                throw new DataException(`Table '${name}' doesn't exist in workbook`);
             }
-        });
+
+            const tableCoordinates = this.getPredictedTableCoordinatesForInputData(table, data.length);
+
+            // get field names from data source
+            const dataFields = data.length > 0 ? Object.keys(data[0]) : [];
+            // get field names from workbook table
+            const workbookFields = this.getTableColumns(sheet, tableCoordinates);
+
+            this.validateTableFields(name, dataFields, workbookFields);
+
+            const processedData = this.getProcessedData(data, workbookFields);
+
+            sheet.suspendPaint(); // for optimization purpose
+            this.resizeTable(sheet, table, tableCoordinates);
+            this.setFormattersAndFormulas(sheet, tableCoordinates);
+            this.insertData(sheet, processedData, tableCoordinates);
+            sheet.resumePaint();
+
+            // return name of data source and field names
+            return [...acc, { name, fields: workbookFields }];
+        }, [] as DataHeader[]);
     }
 
     /**
@@ -59,7 +75,7 @@ export class WorkbookService {
         sheet.tables.resize(table, newTableRange);
     }
 
-    public getCalculatedResults() {
+    public getCalculatedResults(dataHeaders: DataHeader[]) {
         const { tableName, sheet } = this.findResultSheet();
 
         const table = sheet.tables.findByName(tableName);
@@ -67,6 +83,13 @@ export class WorkbookService {
 
         // Filter only rows which has some non-empty values
         const isNotEmptyRow = (row: { name: string; value: string }[]) => row.some(({ value }) => value !== '' && value !== '#N/A');
+
+        // get column names from _INPUT data source
+        const dataFields = dataHeaders.find((data) => data.name === FALLBACK_TABLE).fields;
+        // get column names from workbook table
+        const workbookFields = this.getTableColumns(sheet, { tableRowStartingIndex, tableColumnsCount });
+
+        this.validateTableFields(RESULT_TABLE, dataFields, workbookFields);
 
         // Fill all table rows and columns based on table coordinates using range(rows) and range(cols)
         const data = range(dataRowStartingIndex, tableRowsCount)
@@ -90,14 +113,14 @@ export class WorkbookService {
 
         const resultSheet = findSheet(RESULT_TABLE) ?? findSheet(FALLBACK_TABLE);
         if (!resultSheet) {
-            throw new DataException(`Couldn't find result tables "${RESULT_TABLE}" and "${FALLBACK_TABLE}" in provided workbook`);
+            throw new DataException(`Couldn't find result tables '${RESULT_TABLE}' and '${FALLBACK_TABLE}' in provided workbook`);
         }
 
         return resultSheet;
     }
 
     private getCellData = (sheet: GC.Spread.Sheets.Worksheet, dataRowIndex: number, dataColIndex: number, tableHeaderRowIndex: number) => {
-        const name = sheet.getValue(tableHeaderRowIndex, dataColIndex) as string; // get column name
+        const name = sheet.getValue(tableHeaderRowIndex, dataColIndex)?.toString() ?? ''; // get column name
         const value = sheet.getText(dataRowIndex, dataColIndex);
         return { name, value };
     };
@@ -159,8 +182,8 @@ export class WorkbookService {
         };
     }
 
-    private getProcessedData(data: Dictionary<unknown>[]) {
-        return data.map((value) => Object.values(value));
+    private getProcessedData(data: Dictionary<unknown>[], columns: string[]) {
+        return data.map((value) => columns.map((name) => value[name]));
     }
 
     private findSheetByTable(tableName: string) {
@@ -170,5 +193,25 @@ export class WorkbookService {
     private findTableByName(name: string) {
         const sheet = this.findSheetByTable(name);
         return sheet?.tables.findByName(name);
+    }
+
+    private getTableColumns(sheet: GC.Spread.Sheets.Worksheet, { tableRowStartingIndex, tableColumnsCount }: Partial<ITableCoordinates>) {
+        return range(tableColumnsCount).map((columnIndex) => sheet.getValue(tableRowStartingIndex, columnIndex)?.toString() ?? '');
+    }
+
+    private validateTableFields(name: string, dataFields: string[], workbookFields: string[]) {
+        const fieldsNotInWorkbook = differenceWith(dataFields, workbookFields, isEqual);
+        const fieldsNotInData = differenceWith(workbookFields, dataFields, isEqual);
+        const isDataColumnListInvalid = dataFields.length && fieldsNotInData.length > 0; // without data fields the validation is not needed
+        const isWorkbookColumnListInvalid = fieldsNotInWorkbook.length > 0;
+
+        if (isWorkbookColumnListInvalid || isDataColumnListInvalid) {
+            const desc = [
+                isWorkbookColumnListInvalid ? ` Fields ['${fieldsNotInWorkbook.join(`', '`)}'] don't exist in workbook.` : '',
+                isDataColumnListInvalid ? ` Fields ['${fieldsNotInData.join(`', '`)}'] don't exist in data source.` : '',
+            ].join('');
+
+            throw new DataException(`Fields in table '${name}' don't match.${desc}`);
+        }
     }
 }

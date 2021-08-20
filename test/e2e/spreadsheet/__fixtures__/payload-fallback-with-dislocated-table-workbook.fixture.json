@@ -118,7 +118,7 @@
                 "name": "Inputs 1",
                 "isSelected": true,
                 "rowCount": 12,
-                "columnCount": 5,
+                "columnCount": 4,
                 "activeRow": 6,
                 "zoomFactor": 1.5,
                 "theme": {
@@ -219,10 +219,6 @@
                             "3": {
                                 "value": "CURRENCY",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": "Formel",
-                                "style": "__builtInTableStyle0__builtInStyle5"
                             }
                         },
                         "7": {
@@ -241,11 +237,6 @@
                             "3": {
                                 "value": "EUR",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1974,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         },
                         "8": {
@@ -264,11 +255,6 @@
                             "3": {
                                 "value": "EUR",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1752,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         },
                         "9": {
@@ -287,11 +273,6 @@
                             "3": {
                                 "value": "EUR",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1530,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         },
                         "10": {
@@ -310,11 +291,6 @@
                             "3": {
                                 "value": "EUR",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1308,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         },
                         "11": {
@@ -333,11 +309,6 @@
                             "3": {
                                 "value": "EUR",
                                 "style": "__builtInTableStyle0__builtInStyle5"
-                            },
-                            "4": {
-                                "value": 1086,
-                                "style": "__builtInTableStyle2__builtInStyle3",
-                                "formula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         }
                     },
@@ -428,7 +399,7 @@
                         "row": 6,
                         "col": 0,
                         "rowCount": 6,
-                        "colCount": 5,
+                        "colCount": 4,
                         "style": {
                             "buildInName": "Light8"
                         },
@@ -437,7 +408,7 @@
                                 "row": 7,
                                 "rowCount": 5,
                                 "col": 0,
-                                "colCount": 5
+                                "colCount": 4
                             },
                             "typeName": "HideRowFilter",
                             "dialogVisibleInfo": {},
@@ -466,11 +437,6 @@
                             {
                                 "id": 4,
                                 "name": "CURRENCY"
-                            },
-                            {
-                                "id": 5,
-                                "name": "Formel",
-                                "dataAreaFormula": "_INPUT[[#This Row], [AMOUNT]]*2"
                             }
                         ]
                     }
