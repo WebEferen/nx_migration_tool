@@ -39,6 +39,11 @@ export class WorkbookService {
             const sheet = this.findSheetByTable(name);
             const table = this.findTableByName(name);
             if (!table || !sheet) {
+                // Don't throw an error if input data is empty, just return current results
+                if (data.length === 0) {
+                    return acc;
+                }
+
                 throw new DataException(`Table '${name}' doesn't exist in workbook`);
             }
 

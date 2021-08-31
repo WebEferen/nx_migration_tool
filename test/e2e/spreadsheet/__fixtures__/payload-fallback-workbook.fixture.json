@@ -49,6 +49,10 @@
                             "CURRENCY": "EUR"
                         }
                     ]
+                },
+                {
+                    "name": "_PARAMETERS",
+                    "data": []
                 }
             ]
         }

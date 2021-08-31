@@ -1,4 +1,5 @@
 import { agent, generateTokenForXsuaa } from '../utils';
+import invalidPayloadEmptyWorkbookEmptyInputData from './__fixtures__/payload-empty-workbook-empty-input-data.fixture.json';
 import invalidPayloadInputString from './__fixtures__/payload-empty-workbook-input-string.fixture.json';
 import invalidPayloadEmptyWorkbook from './__fixtures__/payload-empty-workbook.fixture.json';
 import fallbackPayloadWithCellFormulas from './__fixtures__/payload-fallback-with-cell-formulas.fixture.json';
@@ -210,11 +211,29 @@ describe('Spreadsheet calculation', () => {
             expect(results.message).toMatchSnapshot();
         });
 
-        it('should return status 422 when table not found in wokbook', async () => {
+        it('should return status 422 when table not found in workbook', async () => {
             // given
 
             // when
             const response = agent.post(`/api/spreadsheet/calculate`).set('Authorization', `Bearer ${validToken}`).send(invalidPayloadEmptyWorkbook);
+
+            // then
+            const results = await response
+                .expect('Content-Type', /json/)
+                .expect(422)
+                .then<any>(({ body }) => body);
+
+            expect(results.message).toMatchSnapshot();
+        });
+
+        it('should return status 422 when _INPUT or _RESULT tables not found in workbook', async () => {
+            // given
+
+            // when
+            const response = agent
+                .post(`/api/spreadsheet/calculate`)
+                .set('Authorization', `Bearer ${validToken}`)
+                .send(invalidPayloadEmptyWorkbookEmptyInputData);
 
             // then
             const results = await response

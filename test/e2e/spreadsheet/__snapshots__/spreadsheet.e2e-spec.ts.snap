@@ -273,4 +273,6 @@ exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return
 
 exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect data source as string instead of array 1`] = `"Input data for table '_INPUT' is not an array, string was passed instead."`;
 
-exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when table not found in wokbook 1`] = `"Table '_INPUT' doesn't exist in workbook"`;
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when _INPUT or _RESULT tables not found in workbook 1`] = `"Couldn't find result tables '_RESULT' and '_INPUT' in provided workbook"`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when table not found in workbook 1`] = `"Table '_INPUT' doesn't exist in workbook"`;
