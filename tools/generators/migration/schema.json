@@ -1,0 +1,39 @@
+{
+  "cli": "nx",
+  "id": "migration",
+  "type": "object",
+  "properties": {
+      "masterApplicationName" : {
+        "type": "string",
+        "description": "Master application name (NX)"
+      },
+      "masterRepository": {
+          "type": "string",
+          "description": "Master repository (root code) git url",
+          "default": "xyz"
+      },
+      "masterBranch": {
+          "type": "string",
+          "description": "Master repository branch (default master)",
+          "default": "master"
+      },
+      "targetApplicationName" : {
+        "type": "string",
+        "description": "Target application name (NX)"
+      },
+      "targetRepository": {
+        "type": "string",
+        "description": "Target repository (code to move) git url"
+      },
+      "targetBranch": {
+        "type": "string",
+        "description": "Target repository branch (default master)"
+      },
+      "temporaryDirectory": {
+        "type": "string",
+        "description": "Temporary repository name (default master_repo)",
+        "default": "master_repo"
+      }
+  },
+  "required": []
+}
