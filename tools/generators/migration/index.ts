@@ -37,7 +37,8 @@ export default async function (tree: Tree, options: IGeneratorOptions) {
 
   // Make sure that there is no temporary directory & no content inside generated application
   await useCommand('rm', ['-rf', prompts.tempDirectoryName]);
-  await useCommand('rm', ['-rf', `apps/${prompts.targetApplicationName}/*`]);
+  await useCommand('rm', ['-rf', `apps/${prompts.targetApplicationName}`]);
+  await useCommand('mkdir', [`apps/${prompts.targetApplicationName}`]);
   await useCommand('mkdir', [prompts.tempDirectoryName]);
 
   // The core part is done there using our scripts
@@ -54,9 +55,9 @@ export default async function (tree: Tree, options: IGeneratorOptions) {
   const targetStatus = await useCommand('bash', targetOptions);
   if (!targetStatus.success) await rollbackTransaction(prompts.tempDirectoryName, prompts.workingBranch);
 
-  // const moveOptions = [`${scriptsDir}/git-move.sh`, ...directoryOption, '-p'];
-  // const moveStatus = await useCommand('bash', [...moveOptions, `/apps/${prompts.targetApplicationName}`]);
-  // if (!moveStatus.success) await rollbackTransaction(prompts.tempDirectoryName, prompts.workingBranch);
+  const moveOptions = [`${scriptsDir}/git-move.sh`, ...directoryOption, '-p'];
+  const moveStatus = await useCommand('bash', [...moveOptions, `/apps/${prompts.targetApplicationName}`]);
+  if (!moveStatus.success) await rollbackTransaction(prompts.tempDirectoryName, prompts.workingBranch);
 
   // await useCommand('bash', [`${scriptsDir}/git-rollback.sh`, ...directoryOption, '-p', '../']);
 
