@@ -59,7 +59,7 @@ export default async function (tree: Tree, options: IGeneratorOptions) {
   const moveStatus = await useCommand('bash', [...moveOptions, `/apps/${prompts.targetApplicationName}`]);
   if (!moveStatus.success) await rollbackTransaction(prompts.tempDirectoryName, prompts.workingBranch);
 
-  await useCommand('bash', [`${scriptsDir}/git-rollback.sh`, ...directoryOption, '-p', '../']);
+  await useCommand('bash', [`${scriptsDir}/git-rollback.sh`, ...directoryOption, '-p', '.']);
 
   // // Remove old container folder
   await useCommand('rm', ['-rf', prompts.tempDirectoryName]);
