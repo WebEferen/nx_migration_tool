@@ -1,4 +1,4 @@
-import * as spawn from 'cross-spawn';
+import { spawn } from 'cross-spawn';
 
 export async function useCommand(commandName: string, commandArgs: string[] = []) {
     const child = spawn(commandName, commandArgs);
