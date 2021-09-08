@@ -4,11 +4,11 @@ export const SCRIPT_DIR = __dirname + '/scripts/';
 export const GIT_MOVE_SCRIPT = SCRIPT_DIR + 'git-move.sh';
 export const GIT_REMOTE_SCRIPT = SCRIPT_DIR + 'git-remote.sh';
 export const GIT_ROLLBACK_SCRIPT = SCRIPT_DIR + 'git-rollback.sh';
-export const GIT_OTHERS_SCRIPT = SCRIPT_DIR + 'git-others.sh';
 
 export interface IPrompts {
     shouldGenerateApplication: boolean;
     tempDirectoryName: string;
+    masterApplicationName: string;
     masterRepositoryBranch: string;
     masterRepositoryUrl: string;
     targetRepositoryBranch: string;
@@ -29,6 +29,11 @@ export const getPrompts = (): Promise<IPrompts> =>
             name: 'workingBranch',
             type: 'input',
             initial: 'master',
+        },
+        {
+            message: 'Master application name:',
+            name: 'masterApplicationName',
+            type: 'input',
         },
         {
             message: 'Target application name:',

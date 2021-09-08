@@ -16,9 +16,9 @@ function getTargetOptions(options: IPrompts) {
 
 export default async function (tree: Tree, _: IGeneratorOptions) {
     const prompts = await getPrompts();
-    const { shouldGenerateApplication, workingBranch, targetApplicationName, tempDirectoryName } = prompts;
 
-    await useTransaction(workingBranch, async (branchName) => {
+    await useTransaction(async (branchName) => {
+        const { shouldGenerateApplication, workingBranch, targetApplicationName, tempDirectoryName } = prompts;
         const directoryOption = ['-d', tempDirectoryName];
 
         // Create NX application using useCommand wrapper
@@ -35,15 +35,15 @@ export default async function (tree: Tree, _: IGeneratorOptions) {
 
         // Move / commit and rollback changes
         const targetStatus = await useCommand('bash', [GIT_REMOTE_SCRIPT, ...getTargetOptions(prompts)]);
-        if (!targetStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
+        if (!targetStatus.success) await rollbackTransaction(branchName, workingBranch);
 
         // Fetch / merge and move target repository into monorepo
         const moveStatus = await useCommand('bash', [GIT_MOVE_SCRIPT, ...directoryOption, '-p', `/apps/${targetApplicationName}`]);
-        if (!moveStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
+        if (!moveStatus.success) await rollbackTransaction(branchName, workingBranch);
 
         // Move back master repository (from temporary directory)
         const rollbackStatus = await useCommand('bash', [GIT_ROLLBACK_SCRIPT, ...directoryOption, '-p', '.']);
-        if (!rollbackStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
+        if (!rollbackStatus.success) await rollbackTransaction(branchName, workingBranch);
 
         // Remove old container folder
         await useCommand('rm', ['-rf', tempDirectoryName]);
