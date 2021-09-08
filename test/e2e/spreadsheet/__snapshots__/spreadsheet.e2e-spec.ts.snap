@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should correctly calculate formulas from _INPUT table based on input and lookup data 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "AMOUNT": " 987.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A1",
+    },
+    Object {
+      "AMOUNT": " 876.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A2",
+    },
+    Object {
+      "AMOUNT": " 765.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A3",
+    },
+    Object {
+      "AMOUNT": " 654.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A4",
+    },
+    Object {
+      "AMOUNT": " 543.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A5",
+    },
+    Object {
+      "AMOUNT": " 2.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A6",
+    },
+    Object {
+      "AMOUNT": " 2.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A7",
+    },
+  ],
+}
+`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should correctly calculate formulas from _RESULT table based on input and lookup data 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "AMOUNT": "987",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "4/30/2020",
+      "GLACC": "A1",
+      "PRODUCT": "P2",
+      "QUANTITY": "3.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "500.571428571429",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A2",
+      "PRODUCT": "P1",
+      "QUANTITY": "4.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "292",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A2",
+      "PRODUCT": "P2",
+      "QUANTITY": "2.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "255",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A3",
+      "PRODUCT": "P1",
+      "QUANTITY": "1.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "510",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A3",
+      "PRODUCT": "P2",
+      "QUANTITY": "2.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "218",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A4",
+      "PRODUCT": "P1",
+      "QUANTITY": "1.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "436",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A4",
+      "PRODUCT": "P2",
+      "QUANTITY": "2.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "181",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A5",
+      "PRODUCT": "P1",
+      "QUANTITY": "1.0",
+      "UNIT": "PCS",
+    },
+    Object {
+      "AMOUNT": "362",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/31/2020",
+      "GLACC": "A5",
+      "PRODUCT": "P2",
+      "QUANTITY": "2.0",
+      "UNIT": "PCS",
+    },
+  ],
+}
+`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should correctly calculate formulas from dislocated _INPUT table based on input and lookup data 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "AMOUNT": " 987.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A1",
+    },
+    Object {
+      "AMOUNT": " 876.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A2",
+    },
+    Object {
+      "AMOUNT": " 765.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A3",
+    },
+    Object {
+      "AMOUNT": " 654.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A4",
+    },
+    Object {
+      "AMOUNT": " 543.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A5",
+    },
+    Object {
+      "AMOUNT": " 2.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A6",
+    },
+    Object {
+      "AMOUNT": " 2.00 € ",
+      "CURRENCY": "EUR",
+      "FISCYEARPER": "3/30/2020",
+      "GLACC": "A7",
+    },
+  ],
+}
+`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should correctly return data based on _INPUT table with many formulas and formatters 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "CC": "CC1",
+      "FA": "FA1",
+      "GL": "GL1",
+      "N1": "100",
+      "N2": "10.00",
+      "N3": "1,001.00 USD",
+      "PC": "PC1",
+    },
+    Object {
+      "CC": "CC2",
+      "FA": "FA1",
+      "GL": "GL1",
+      "N1": "200",
+      "N2": "10.00",
+      "N3": "2,001.00 USD",
+      "PC": "PC1",
+    },
+    Object {
+      "CC": "CC1",
+      "FA": "FA2",
+      "GL": "GL1",
+      "N1": "300",
+      "N2": "20.00",
+      "N3": "6,001.00 USD",
+      "PC": "PC2",
+    },
+    Object {
+      "CC": "CC2",
+      "FA": "FA2",
+      "GL": "GL1",
+      "N1": "400",
+      "N2": "20.00",
+      "N3": "8,001.00 USD",
+      "PC": "PC2",
+    },
+    Object {
+      "CC": "CC1",
+      "FA": "FA1",
+      "GL": "GL2",
+      "N1": "500",
+      "N2": "10.00",
+      "N3": "5,001.00 USD",
+      "PC": "PC1",
+    },
+    Object {
+      "CC": "CC2",
+      "FA": "FA1",
+      "GL": "GL2",
+      "N1": "600",
+      "N2": "10.00",
+      "N3": "6,001.00 USD",
+      "PC": "PC1",
+    },
+    Object {
+      "CC": "CC1",
+      "FA": "FA2",
+      "GL": "GL2",
+      "N1": "700",
+      "N2": "20.00",
+      "N3": "14,001.00 USD",
+      "PC": "PC2",
+    },
+    Object {
+      "CC": "CC2",
+      "FA": "FA2",
+      "GL": "GL2",
+      "N1": "800",
+      "N2": "20.00",
+      "N3": "16,001.00 USD",
+      "PC": "PC2",
+    },
+  ],
+}
+`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _INPUT table columns in data source 1`] = `"Fields in table '_INPUT' don't match. Fields ['Formel'] don't exist in data source."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _INPUT table columns in workbook 1`] = `"Fields in table '_INPUT' don't match. Fields ['FISCYEARPER'] don't exist in workbook."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect _RESULT table columns in workbook 1`] = `"Fields in table '_RESULT' don't match. Fields ['FISCYEARPER'] don't exist in workbook."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 for incorrect data source as string instead of array 1`] = `"Input data for table '_INPUT' is not an array, string was passed instead."`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when _INPUT or _RESULT tables not found in workbook 1`] = `"Couldn't find result tables '_RESULT' and '_INPUT' in provided workbook"`;
+
+exports[`Spreadsheet calculation /api/spreadsheet/calculate (POST) should return status 422 when table not found in workbook 1`] = `"Table '_INPUT' doesn't exist in workbook"`;

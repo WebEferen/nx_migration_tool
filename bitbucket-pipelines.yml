@@ -1,0 +1,142 @@
+image: node:16.0.0-buster
+
+definitions:
+    steps:
+        - step: &lint-step
+              name: Lint
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - yarn lint
+
+        - step: &test-step
+              name: Unit tests
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - export JEST_JUNIT_OUTPUT_DIR='test-reports'
+                  - yarn test:cov --ci --runInBand --logHeapUsage --reporters="default" --reporters="jest-junit"
+
+        - step: &whitesource-scan-step
+              name: WhiteSource scan
+              image: nexontis/whitesource:node-15.12.0
+              script:
+                  - |
+                      WS_CONFIG=yarn \
+                      whitesource \
+                          -apiKey $WHITESOURCE_API_KEY \
+                          -userKey $WHITESOURCE_USER_KEY \
+
+        - parallel: &validate-commit-steps
+              - step: *lint-step
+              - step: *test-step
+              - step:
+                    <<: *whitesource-scan-step
+                    condition:
+                        changesets:
+                            includePaths:
+                                - 'yarn.lock'
+
+        - step: &build-step
+              name: Build
+              caches:
+                  - node
+              script:
+                  - yarn install --non-interactive
+                  - yarn build
+              artifacts:
+                  - dist/**
+
+        - step: &e2e-step
+              name: E2E tests
+              caches:
+                  - node
+              script:
+                  - export NODE_OPTIONS="--max_old_space_size=2560"
+                  - export JEST_JUNIT_OUTPUT_DIR='test-reports'
+                  - yarn install --non-interactive
+                  # E2E tests with JWT authentication
+                  - yarn start-test 'VCAP_SERVICES=$(cat test/e2e/__fixtures__/vcap-services.json) yarn start:prod' :5002/api 'yarn test:e2e --ci --logHeapUsage'
+
+        - step: &docker-build-step
+              name: Docker build and publish
+              services:
+                  - docker
+              caches:
+                  - docker
+              script:
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/7XRaGM/files/docker_build_push.sh) Dockerfile
+                  # sign Docker image
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/8XA889/files/sign-image.sh) $DOCKER_IMAGE:$BITBUCKET_COMMIT
+
+        - step: &docker-deploy-step
+              name: Deploy
+              image: governmentpaas/cf-cli
+              services:
+                  - docker
+              caches:
+                  - docker
+              script:
+                  # Validate that docker image is signed
+                  - docker login --username $DH_USER --password $DH_PASS
+                  - source <(curl -s -L https://api.bitbucket.org/2.0/snippets/nexontis/8XA889/files/validate-image.sh) $DOCKER_IMAGE:$BITBUCKET_COMMIT
+                  # Deploy to SAP Cloud Platform
+                  - cf api https://api.cf.sap.hana.ondemand.com
+                  - export CF_ORGANIZATION='PaPM'
+                  - export CF_SPACE='PaPM'
+                  - cf login -u $CF_USER -p $CF_PASS -o "$CF_ORGANIZATION" -s "$CF_SPACE"
+                  - |
+                      CF_DOCKER_PASSWORD=$DH_PASS cf push \
+                      --var nexontis-spreadsheets-api=$DOCKER_IMAGE:$BITBUCKET_COMMIT \
+                      --var dh-user=$DH_USER \
+                      --var basic-auth-user=$BASIC_AUTH_USER \
+                      --var basic-auth-pass=$BASIC_AUTH_PASS \
+                      --var spreadjs-licence-key=$SPREADJS_LICENCE_KEY
+
+        - step: &deploy-papm-cloud-eu10-step
+              name: Deploy to prod-dev EU10
+              image: governmentpaas/cf-cli
+              script:
+                  - export REGION="eu10"
+                  - export CF_SPACE="prod-dev"
+                  - PIPELINE="deploy-spreadsheets-pipeline" envsubst < ci/trigger-papm-cloud-provider.template.json > ci/trigger-papm-cloud-provider-deploy-spreadsheets.json
+                  - |
+                      curl https://api.bitbucket.org/2.0/repositories/nexontis/papm-cloud-provider/pipelines/ \
+                          --verbose --fail \
+                          --user "${BITBUCKET_USERNAME}:${BITBUCKET_PASSWORD}" \
+                          --header 'Content-Type: application/json' \
+                          --data @ci/trigger-papm-cloud-provider-deploy-spreadsheets.json
+
+        - parallel: &deploy-step
+              - step: *docker-deploy-step
+              - step: *deploy-papm-cloud-eu10-step
+
+pipelines:
+    default:
+        - parallel: *validate-commit-steps
+        - step: *build-step
+        - step: *e2e-step
+
+    branches:
+        master:
+            - parallel: *validate-commit-steps
+            - step: *build-step
+            - step: *e2e-step
+            - step: *docker-build-step
+            - parallel: *deploy-step
+
+    custom:
+        build:
+            - step: *build-step
+            - step: *docker-build-step
+        deploy:
+            - step: *build-step
+            - step: *docker-build-step
+            - step: *docker-deploy-step
+        whitesource-scan:
+            - step: *whitesource-scan-step
+
+options:
+    max-time: 30

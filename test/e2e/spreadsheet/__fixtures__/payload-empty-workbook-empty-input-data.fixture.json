@@ -1,0 +1,22 @@
+{
+    "groupedData": [
+        {
+            "group": "",
+            "inputs": [
+                {
+                    "name": "_INPUT",
+                    "data": []
+                }
+            ]
+        }
+    ],
+    "workbook": {
+        "version": "14.0.2",
+        "docProps": {},
+        "tabStripRatio": 0.6,
+        "customList": [],
+        "sheets": {},
+        "namedStyles": [],
+        "names": []
+    }
+}

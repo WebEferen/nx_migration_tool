@@ -1,0 +1,15 @@
+{
+    "xsuaa": [
+        {
+            "label": "xsuaa-papm-broker",
+            "name": "xsuaa-papm-broker",
+            "credentials": {
+                "url": "localhost",
+                "xsappname": "papm",
+                "clientid": "12345",
+                "clientsecret": "secret",
+                "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3yOwRKSWbpMBhiVAH3+m\naRbbOkDCsFZ+Al1da0BNxsIUqjybGPZzInXbiKKf2zOqynoork7nUmVfSLc/MT1u\nRZM0s32YA/U0pozXHK31oikjm95W7WkDfUwUSdZhnGVrqBFq9OPVbuPr3gdaN5p2\ntkbrRVGLVSmHSUyRTh/wFsmtZbExd9Zs1y7++5Jo00Rjfo85sPNYEf1wgkKjb1vQ\nj3bWmEc1qnJw0JgizRKRJGD9HhYEaBpvLsUztOZttqcgQ9bJJBPDmMgr2prc+K2u\n2SOsA/m1huB8QI8k03InQqJANoXp8i+wCT/lvQ0xZjkTrKG8rkK/x/lh5x/r1Wu9\n8QIDAQAB\n-----END PUBLIC KEY-----"
+            }
+        }
+    ]
+}

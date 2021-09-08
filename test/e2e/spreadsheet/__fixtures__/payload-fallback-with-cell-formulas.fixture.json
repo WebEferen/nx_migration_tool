@@ -1,0 +1,1404 @@
+{
+    "groupedData": [
+        {
+            "group": "CC4_2021_4000.00_8000.00_12000.00_4.00_4.00_4.00__0.00_",
+            "inputs": [
+                {
+                    "name": "_INPUT",
+                    "data": [
+                        {
+                            "GL": "GL1",
+                            "PC": "PC1",
+                            "FA": "FA1",
+                            "CC": "CC1",
+                            "N1": 100.0,
+                            "N2": 10,
+                            "N3": 11
+                        },
+                        {
+                            "GL": "GL1",
+                            "PC": "PC1",
+                            "FA": "FA1",
+                            "CC": "CC2",
+                            "N1": 200.0,
+                            "N2": 10,
+                            "N3": 21
+                        },
+                        {
+                            "GL": "GL1",
+                            "PC": "PC1",
+                            "FA": "FA2",
+                            "CC": "CC1",
+                            "N1": 300.0,
+                            "N2": 10,
+                            "N3": 51
+                        },
+                        {
+                            "GL": "GL1",
+                            "PC": "PC1",
+                            "FA": "FA2",
+                            "CC": "CC2",
+                            "N1": 400.0,
+                            "N2": 10,
+                            "N3": 11
+                        },
+                        {
+                            "GL": "GL2",
+                            "PC": "PC1",
+                            "FA": "FA1",
+                            "CC": "CC1",
+                            "N1": 500.0,
+                            "N2": 10,
+                            "N3": 11
+                        },
+                        {
+                            "GL": "GL2",
+                            "PC": "PC1",
+                            "FA": "FA1",
+                            "CC": "CC2",
+                            "N1": 600.0,
+                            "N2": 10,
+                            "N3": 11
+                        },
+                        {
+                            "GL": "GL2",
+                            "PC": "PC1",
+                            "FA": "FA2",
+                            "CC": "CC1",
+                            "N1": 700.0,
+                            "N2": 10,
+                            "N3": 11
+                        },
+                        {
+                            "GL": "GL2",
+                            "PC": "PC1",
+                            "FA": "FA2",
+                            "CC": "CC2",
+                            "N1": 800.0,
+                            "N2": 10,
+                            "N3": 11
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "workbook": {
+        "version": "14.0.3",
+        "docProps": {
+            "docPropsCore": {
+                "lastModifiedBy": "Marek Ganko",
+                "created": "2020-12-28T21:03:09Z",
+                "modified": "2020-12-28T21:03:09Z"
+            },
+            "docPropsApp": {
+                "TotalTime": "0",
+                "Application": "Microsoft Macintosh Excel",
+                "DocSecurity": "0",
+                "ScaleCrop": "false",
+                "HeadingPairs": {
+                    "size": 2,
+                    "baseType": "variant",
+                    "workbookInfoArray": [
+                        {
+                            "elementType": "vt:lpstr",
+                            "value": "Worksheets"
+                        },
+                        {
+                            "elementType": "vt:i4",
+                            "value": "3"
+                        }
+                    ]
+                },
+                "TitlesOfParts": {
+                    "size": 3,
+                    "baseType": "lpstr",
+                    "sheetsNameArray": ["Parameters", "Input", "Lookup"]
+                },
+                "LinksUpToDate": "false",
+                "SharedDoc": "false",
+                "HyperlinksChanged": "false",
+                "AppVersion": "16.0300"
+            }
+        },
+        "sheetCount": 3,
+        "tabStripRatio": 0.6,
+        "iterativeCalculation": false,
+        "iterativeCalculationMaximumIterations": 100,
+        "iterativeCalculationMaximumChange": 0.001,
+        "customList": [],
+        "activeSheetIndex": 1,
+        "sheets": {
+            "Parameters": {
+                "name": "Parameters",
+                "isSelected": false,
+                "rowCount": 2,
+                "columnCount": 3,
+                "activeRow": 1,
+                "activeCol": 1,
+                "theme": "Office",
+                "data": {
+                    "dataTable": {
+                        "0": {
+                            "0": {
+                                "value": "Parameter",
+                                "style": "__builtInTableStyle0__builtInStyle5"
+                            },
+                            "1": {
+                                "value": "Description",
+                                "style": "__builtInTableStyle0__builtInStyle5"
+                            },
+                            "2": {
+                                "value": "Value",
+                                "style": "__builtInTableStyle0__builtInStyle5"
+                            }
+                        },
+                        "1": {
+                            "0": {
+                                "value": "P1",
+                                "style": "__builtInTableStyle1__builtInStyle2"
+                            },
+                            "1": {
+                                "value": "Parameter 1",
+                                "style": "__builtInTableStyle1__builtInStyle2"
+                            },
+                            "2": {
+                                "value": 1,
+                                "style": "__builtInTableStyle1__builtInStyle2"
+                            }
+                        }
+                    },
+                    "defaultDataNode": {
+                        "style": {
+                            "backColor": null,
+                            "foreColor": "#000000",
+                            "font": "normal normal 14.7px Calibri",
+                            "themeFont": "Body",
+                            "borderLeft": null,
+                            "borderTop": null,
+                            "borderRight": null,
+                            "borderBottom": null,
+                            "locked": true,
+                            "textIndent": 0,
+                            "wordWrap": false,
+                            "diagonalDown": null,
+                            "diagonalUp": null
+                        }
+                    }
+                },
+                "rowHeaderData": {},
+                "colHeaderData": {},
+                "rows": [
+                    {
+                        "size": 21
+                    },
+                    {
+                        "size": 20
+                    }
+                ],
+                "columns": [
+                    {
+                        "size": 87
+                    },
+                    {
+                        "size": 93
+                    },
+                    {
+                        "size": 57
+                    }
+                ],
+                "leftCellIndex": 0,
+                "topCellIndex": 0,
+                "selections": {
+                    "0": {
+                        "row": 1,
+                        "rowCount": 1,
+                        "col": 1,
+                        "colCount": 1
+                    },
+                    "length": 1
+                },
+                "rowOutlines": {
+                    "items": []
+                },
+                "columnOutlines": {
+                    "items": []
+                },
+                "cellStates": {},
+                "outlineColumnOptions": {},
+                "autoMergeRangeInfos": [],
+                "tables": [
+                    {
+                        "name": "_PARAMETERS",
+                        "row": 0,
+                        "col": 0,
+                        "rowCount": 2,
+                        "colCount": 3,
+                        "style": {
+                            "buildInName": "Medium2"
+                        },
+                        "rowFilter": {
+                            "range": {
+                                "row": 1,
+                                "rowCount": 1,
+                                "col": 0,
+                                "colCount": 3
+                            },
+                            "typeName": "HideRowFilter",
+                            "dialogVisibleInfo": {},
+                            "filterButtonVisibleInfo": {
+                                "0": true,
+                                "1": true,
+                                "2": true
+                            },
+                            "showFilterButton": true
+                        },
+                        "columns": [
+                            {
+                                "id": 1,
+                                "name": "Parameter"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Description"
+                            },
+                            {
+                                "id": 3,
+                                "name": "Value"
+                            }
+                        ]
+                    }
+                ],
+                "index": 0
+            },
+            "Input": {
+                "name": "Input",
+                "isSelected": true,
+                "rowCount": 7,
+                "columnCount": 8,
+                "activeRow": 6,
+                "activeCol": 7,
+                "theme": "Office",
+                "data": {
+                    "dataTable": {
+                        "0": {
+                            "0": {
+                                "value": "GL",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "1": {
+                                "value": "FA",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "2": {
+                                "value": "CC",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "3": {
+                                "value": "N1",
+                                "style": "__builtInTableStyle3__builtInStyle3"
+                            },
+                            "4": {
+                                "value": "PC",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "5": {
+                                "value": "N2",
+                                "style": "__builtInTableStyle2__builtInStyle2"
+                            },
+                            "6": {
+                                "value": "N3",
+                                "style": "__builtInTableStyle3__builtInStyle3"
+                            }
+                        },
+                        "1": {
+                            "0": {
+                                "value": "GL1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 1,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[[FA]:[PC]],2)"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 11,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        },
+                        "2": {
+                            "0": {
+                                "value": "GL1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC2",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 2,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "LOOKUP(_INPUT[[#This Row], [FA]],MTLU[FA],MTLU[PC])"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 21,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        },
+                        "3": {
+                            "0": {
+                                "value": "GL2",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "2": {
+                                "value": "CC1",
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "3": {
+                                "value": 5,
+                                "style": "__builtInTableStyle4__builtInStyle4"
+                            },
+                            "4": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle2__builtInStyle2",
+                                "formula": "LOOKUP(_INPUT[[#This Row], [FA]],MTLU[FA],MTLU[PC])"
+                            },
+                            "5": {
+                                "value": 10,
+                                "style": "__builtInTableStyle5__builtInStyle6",
+                                "formula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            "6": {
+                                "value": 51,
+                                "style": "__builtInTableStyle6__builtInStyle7",
+                                "formula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        }
+                    },
+                    "defaultDataNode": {
+                        "style": {
+                            "backColor": null,
+                            "foreColor": "#000000",
+                            "font": "normal normal 14.7px Calibri",
+                            "themeFont": "Body",
+                            "borderLeft": null,
+                            "borderTop": null,
+                            "borderRight": null,
+                            "borderBottom": null,
+                            "locked": true,
+                            "textIndent": 0,
+                            "wordWrap": false,
+                            "diagonalDown": null,
+                            "diagonalUp": null
+                        }
+                    }
+                },
+                "rowHeaderData": {},
+                "colHeaderData": {},
+                "rows": [
+                    {
+                        "size": 20
+                    },
+                    {
+                        "size": 20
+                    },
+                    {
+                        "size": 20
+                    },
+                    {
+                        "size": 20
+                    }
+                ],
+                "columns": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    {
+                        "size": 64
+                    }
+                ],
+                "leftCellIndex": 0,
+                "topCellIndex": 0,
+                "selections": {
+                    "0": {
+                        "row": 6,
+                        "rowCount": 1,
+                        "col": 7,
+                        "colCount": 1
+                    },
+                    "length": 1
+                },
+                "rowOutlines": {
+                    "items": []
+                },
+                "columnOutlines": {
+                    "items": []
+                },
+                "cellStates": {},
+                "outlineColumnOptions": {},
+                "autoMergeRangeInfos": [],
+                "tables": [
+                    {
+                        "name": "_INPUT",
+                        "row": 0,
+                        "col": 0,
+                        "rowCount": 4,
+                        "colCount": 7,
+                        "style": {
+                            "buildInName": "Medium2"
+                        },
+                        "rowFilter": {
+                            "range": {
+                                "row": 1,
+                                "rowCount": 3,
+                                "col": 0,
+                                "colCount": 7
+                            },
+                            "typeName": "HideRowFilter",
+                            "dialogVisibleInfo": {},
+                            "filterButtonVisibleInfo": {
+                                "0": true,
+                                "1": true,
+                                "2": true,
+                                "3": true,
+                                "4": true,
+                                "5": true,
+                                "6": true
+                            },
+                            "showFilterButton": true
+                        },
+                        "columns": [
+                            {
+                                "id": 1,
+                                "name": "GL"
+                            },
+                            {
+                                "id": 2,
+                                "name": "FA"
+                            },
+                            {
+                                "id": 3,
+                                "name": "CC"
+                            },
+                            {
+                                "id": 4,
+                                "name": "N1"
+                            },
+                            {
+                                "id": 5,
+                                "name": "PC"
+                            },
+                            {
+                                "id": 6,
+                                "name": "N2",
+                                "dataAreaFormula": "VLOOKUP(_INPUT[[#This Row], [FA]],MTLU[],3)"
+                            },
+                            {
+                                "id": 7,
+                                "name": "N3",
+                                "dataAreaFormula": "_INPUT[[#This Row], [N1]]*_INPUT[[#This Row], [N2]]+VLOOKUP(\"P1\",_PARAMETERS[],3)"
+                            }
+                        ]
+                    }
+                ],
+                "index": 1
+            },
+            "Lookup": {
+                "name": "Lookup",
+                "isSelected": false,
+                "rowCount": 3,
+                "columnCount": 3,
+                "activeRow": 2,
+                "activeCol": 2,
+                "theme": "Office",
+                "data": {
+                    "dataTable": {
+                        "0": {
+                            "0": {
+                                "value": "FA",
+                                "style": "__builtInTableStyle7__builtInStyle2"
+                            },
+                            "1": {
+                                "value": "PC",
+                                "style": "__builtInTableStyle7__builtInStyle2"
+                            },
+                            "2": {
+                                "value": "N2",
+                                "style": "__builtInTableStyle7__builtInStyle2"
+                            }
+                        },
+                        "1": {
+                            "0": {
+                                "value": "FA1",
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "PC1",
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            },
+                            "2": {
+                                "value": 10,
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            }
+                        },
+                        "2": {
+                            "0": {
+                                "value": "FA2",
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            },
+                            "1": {
+                                "value": "PC2",
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            },
+                            "2": {
+                                "value": 20,
+                                "style": "__builtInTableStyle8__builtInStyle4"
+                            }
+                        }
+                    },
+                    "defaultDataNode": {
+                        "style": {
+                            "backColor": null,
+                            "foreColor": "#000000",
+                            "font": "normal normal 14.7px Calibri",
+                            "themeFont": "Body",
+                            "borderLeft": null,
+                            "borderTop": null,
+                            "borderRight": null,
+                            "borderBottom": null,
+                            "locked": true,
+                            "textIndent": 0,
+                            "wordWrap": false,
+                            "diagonalDown": null,
+                            "diagonalUp": null
+                        }
+                    }
+                },
+                "rowHeaderData": {},
+                "colHeaderData": {},
+                "rows": [
+                    {
+                        "size": 20
+                    },
+                    {
+                        "size": 20
+                    },
+                    {
+                        "size": 20
+                    }
+                ],
+                "leftCellIndex": 0,
+                "topCellIndex": 0,
+                "selections": {
+                    "0": {
+                        "row": 2,
+                        "rowCount": 1,
+                        "col": 2,
+                        "colCount": 1
+                    },
+                    "length": 1
+                },
+                "rowOutlines": {
+                    "items": []
+                },
+                "columnOutlines": {
+                    "items": []
+                },
+                "cellStates": {},
+                "outlineColumnOptions": {},
+                "autoMergeRangeInfos": [],
+                "tables": [
+                    {
+                        "name": "MTLU",
+                        "row": 0,
+                        "col": 0,
+                        "rowCount": 3,
+                        "colCount": 3,
+                        "style": {
+                            "buildInName": "Medium2"
+                        },
+                        "rowFilter": {
+                            "range": {
+                                "row": 1,
+                                "rowCount": 2,
+                                "col": 0,
+                                "colCount": 3
+                            },
+                            "typeName": "HideRowFilter",
+                            "dialogVisibleInfo": {},
+                            "filterButtonVisibleInfo": {
+                                "0": true,
+                                "1": true,
+                                "2": true
+                            },
+                            "showFilterButton": true
+                        },
+                        "columns": [
+                            {
+                                "id": 1,
+                                "name": "FA"
+                            },
+                            {
+                                "id": 2,
+                                "name": "PC"
+                            },
+                            {
+                                "id": 3,
+                                "name": "N2"
+                            }
+                        ]
+                    }
+                ],
+                "index": 2
+            }
+        },
+        "namedStyles": [
+            {
+                "backColor": "Accent 1 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent1"
+            },
+            {
+                "backColor": "Accent 2 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent2"
+            },
+            {
+                "backColor": "Accent 3 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent3"
+            },
+            {
+                "backColor": "Accent 4 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent4"
+            },
+            {
+                "backColor": "Accent 5 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent5"
+            },
+            {
+                "backColor": "Accent 6 80",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "20% - Accent6"
+            },
+            {
+                "backColor": "Accent 1 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent1"
+            },
+            {
+                "backColor": "Accent 2 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent2"
+            },
+            {
+                "backColor": "Accent 3 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent3"
+            },
+            {
+                "backColor": "Accent 4 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent4"
+            },
+            {
+                "backColor": "Accent 5 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent5"
+            },
+            {
+                "backColor": "Accent 6 60",
+                "foreColor": "Text 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "40% - Accent6"
+            },
+            {
+                "backColor": "Accent 1 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent1"
+            },
+            {
+                "backColor": "Accent 2 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent2"
+            },
+            {
+                "backColor": "Accent 3 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent3"
+            },
+            {
+                "backColor": "Accent 4 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent4"
+            },
+            {
+                "backColor": "Accent 5 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent5"
+            },
+            {
+                "backColor": "Accent 6 40",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "60% - Accent6"
+            },
+            {
+                "backColor": "Accent 1 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent1"
+            },
+            {
+                "backColor": "Accent 2 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent2"
+            },
+            {
+                "backColor": "Accent 3 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent3"
+            },
+            {
+                "backColor": "Accent 4 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent4"
+            },
+            {
+                "backColor": "Accent 5 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent5"
+            },
+            {
+                "backColor": "Accent 6 0",
+                "foreColor": "Background 1 0",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Accent6"
+            },
+            {
+                "backColor": "#ffc7ce",
+                "foreColor": "#9c0006",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Bad"
+            },
+            {
+                "backColor": "#f2f2f2",
+                "foreColor": "#fa7d00",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderTop": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderRight": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderBottom": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "name": "Calculation",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": "#a5a5a5",
+                "foreColor": "Background 1 0",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": {
+                    "color": "#3f3f3f",
+                    "style": 6
+                },
+                "borderTop": {
+                    "color": "#3f3f3f",
+                    "style": 6
+                },
+                "borderRight": {
+                    "color": "#3f3f3f",
+                    "style": 6
+                },
+                "borderBottom": {
+                    "color": "#3f3f3f",
+                    "style": 6
+                },
+                "name": "Check Cell",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "formatter": "_(* #,##0.00_);_(* (#,##0.00);_(* \"-\"??_);_(@_)",
+                "name": "Comma"
+            },
+            {
+                "backColor": null,
+                "formatter": "_(* #,##0_);_(* (#,##0);_(* \"-\"_);_(@_)",
+                "name": "Comma [0]"
+            },
+            {
+                "backColor": null,
+                "formatter": "_(\"$\"* #,##0.00_);_(\"$\"* (#,##0.00);_(\"$\"* \"-\"??_);_(@_)",
+                "name": "Currency"
+            },
+            {
+                "backColor": null,
+                "formatter": "_(\"$\"* #,##0_);_(\"$\"* (#,##0);_(\"$\"* \"-\"_);_(@_)",
+                "name": "Currency [0]"
+            },
+            {
+                "backColor": null,
+                "foreColor": "#7f7f7f",
+                "font": "italic normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Explanatory Text"
+            },
+            {
+                "backColor": "#c6efce",
+                "foreColor": "#006100",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Good"
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 2 0",
+                "font": "normal bold 20px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": {
+                    "color": "Accent 1 0",
+                    "style": 5
+                },
+                "name": "Heading 1",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 2 0",
+                "font": "normal bold 17.3px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": {
+                    "color": "Accent 1 50",
+                    "style": 5
+                },
+                "name": "Heading 2",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 2 0",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": {
+                    "color": "Accent 1 40",
+                    "style": 2
+                },
+                "name": "Heading 3",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 2 0",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Heading 4"
+            },
+            {
+                "backColor": "#ffcc99",
+                "foreColor": "#3f3f76",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderTop": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderRight": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "borderBottom": {
+                    "color": "#7f7f7f",
+                    "style": 1
+                },
+                "name": "Input",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#fa7d00",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": {
+                    "color": "#ff8001",
+                    "style": 6
+                },
+                "name": "Linked Cell",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": "#ffeb9c",
+                "foreColor": "#9c6500",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Neutral"
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "Normal",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": "#ffffcc",
+                "borderLeft": {
+                    "color": "#b2b2b2",
+                    "style": 1
+                },
+                "borderTop": {
+                    "color": "#b2b2b2",
+                    "style": 1
+                },
+                "borderRight": {
+                    "color": "#b2b2b2",
+                    "style": 1
+                },
+                "borderBottom": {
+                    "color": "#b2b2b2",
+                    "style": 1
+                },
+                "name": "Note",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": "#f2f2f2",
+                "foreColor": "#3f3f3f",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": {
+                    "color": "#3f3f3f",
+                    "style": 1
+                },
+                "borderTop": {
+                    "color": "#3f3f3f",
+                    "style": 1
+                },
+                "borderRight": {
+                    "color": "#3f3f3f",
+                    "style": 1
+                },
+                "borderBottom": {
+                    "color": "#3f3f3f",
+                    "style": 1
+                },
+                "name": "Output",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "formatter": "0%",
+                "name": "Percent"
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 2 0",
+                "font": "normal bold 24px Calibri Light",
+                "themeFont": "Headings",
+                "name": "Title"
+            },
+            {
+                "backColor": null,
+                "foreColor": "Text 1 0",
+                "font": "normal bold 14.7px Calibri",
+                "themeFont": "Body",
+                "borderLeft": null,
+                "borderTop": {
+                    "color": "Accent 1 0",
+                    "style": 1
+                },
+                "borderRight": null,
+                "borderBottom": {
+                    "color": "Accent 1 0",
+                    "style": 6
+                },
+                "name": "Total",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#ff0000",
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "name": "Warning Text"
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "General",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle1",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "General",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle2",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "General",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle3",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": null,
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle4",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "General",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle5",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "#,##0.00",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle6",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "backColor": null,
+                "foreColor": "#000000",
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 14.7px Calibri",
+                "themeFont": "Body",
+                "formatter": "#,##0.00\\ [$USD]",
+                "borderLeft": null,
+                "borderTop": null,
+                "borderRight": null,
+                "borderBottom": null,
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInStyle7",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle0__builtInStyle5",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle1__builtInStyle2",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle2__builtInStyle2",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle3__builtInStyle3",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "foreColor": null,
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle4__builtInStyle4",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "#,##0.00",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle5__builtInStyle6",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "#,##0.00\\ [$USD]",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle6__builtInStyle7",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "hAlign": 3,
+                "vAlign": 0,
+                "themeFont": "Body",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle7__builtInStyle2",
+                "diagonalDown": null,
+                "diagonalUp": null
+            },
+            {
+                "foreColor": null,
+                "hAlign": 3,
+                "vAlign": 0,
+                "font": "normal normal 12px 72",
+                "formatter": "General",
+                "locked": true,
+                "textIndent": 0,
+                "wordWrap": false,
+                "name": "__builtInTableStyle8__builtInStyle4",
+                "diagonalDown": null,
+                "diagonalUp": null
+            }
+        ]
+    }
+}
