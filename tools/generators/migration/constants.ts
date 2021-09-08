@@ -59,6 +59,7 @@ export const getPrompts = (): Promise<IPrompts> => prompt([
   {
     message: 'Temporary directory name (to move files to):',
     name: 'tempDirectoryName',
-    type: 'input'
+    type: 'input',
+    initial: 'tmp'
   },
 ]);
