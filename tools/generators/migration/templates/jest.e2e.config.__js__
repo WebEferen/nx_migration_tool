@@ -1,0 +1,13 @@
+const { resolve } = require('path');
+
+const sharedConfig = require('./jest.config');
+
+module.exports = {
+    ...sharedConfig,
+    displayName: '<%= applicationName %> e2e',
+    modulePaths: ['<rootDir>/test/e2e/'],
+    modulePathIgnorePatterns: ['<rootDir>/src/'],
+    setupFiles: [resolve(__dirname, './test/setupTests.ts')],
+    testMatch: ['**/+(*.)+(e2e-spec).+(ts|js)?(x)'],
+    cacheDirectory: resolve(__dirname, '../../.cache/jest/e2e'),
+};

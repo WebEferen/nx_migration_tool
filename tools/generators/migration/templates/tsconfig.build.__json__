@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "include": ["src/**/*.ts", "../../typings/*.d.ts"],
+    "exclude": ["**/*.spec.ts", "**/__fixtures__/**/*.ts", "**/__tests__/**/*.ts"],
+    "typedocOptions": {
+        "entryPoints": ["./src"],
+        "out": "../../docs/<%= applicationName %>/ts-docs",
+        "exclude": ["**/+(index|*.seed|*.spec).ts", "**/+(__fixtures__|__tests__)/**/*.ts"],
+        "excludeExternals": true
+    }
+}

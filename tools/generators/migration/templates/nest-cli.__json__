@@ -1,0 +1,9 @@
+{
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "apps/<%= applicationName %>",
+    "entryFile": "src/main",
+    "compilerOptions": {
+        "assets": [],
+        "deleteOutDir": true
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "extends": ["../../.eslintrc"],
+    "ignorePatterns": [],
+    "overrides": [
+        {
+            "files": ["*.ts", "*.js"],
+            "parserOptions": {
+                "project": ["apps/<%= applicationName %>/tsconfig.json"]
+            },
+            "rules": {
+                "no-restricted-imports": [
+                    "error",
+                    {
+                        "paths": [
+                            {
+                                "name": "typeorm",
+                                "importNames": ["Connection", "getConnection", "EntityManager", "createConnection"],
+                                "message": "Please import 'TenantConnectionService' from '@modules/tenant' instead."
+                            },
+                            {
+                                "name": "@nestjs/config",
+                                "importNames": ["ConfigModule", "NestConfigModule"],
+                                "message": "Please import 'ConfigModule' from '@modules/config' instead."
+                            },
+                            {
+                                "name": "nest-winston",
+                                "importNames": ["Logger", "LoggerModule", "NestLoggerModule"],
+                                "message": "Please import 'LoggerModule' or 'LoggerService' from '@modules/logger' instead."
+                            },
+                            {
+                                "name": "@nestjs/common",
+                                "importNames": ["LoggerService"],
+                                "message": "Please import 'LoggerService' from '@modules/logger' instead."
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

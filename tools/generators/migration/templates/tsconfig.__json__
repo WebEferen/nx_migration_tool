@@ -1,0 +1,14 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "include": ["**/*.ts", "**/*.js", "**/*.json", "../../typings/*.d.ts"],
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": ".",
+        "outDir": "../../dist/apps/<%= applicationName %>",
+        "paths": {
+            <%_ applicationPaths.forEach(applicationPath) { _%>
+                "<%= applicationPath.name %>": ["<%= applicationPath.path %>"],
+            <%_ } _%>
+        }
+    }
+}
