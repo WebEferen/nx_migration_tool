@@ -35,15 +35,15 @@ export default async function (tree: Tree, _: IGeneratorOptions) {
 
         // Move / commit and rollback changes
         const targetStatus = await useCommand('bash', [GIT_REMOTE_SCRIPT, ...getTargetOptions(prompts)]);
-        if (!targetStatus.success) await rollbackTransaction(branchName, workingBranch);
+        if (!targetStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
 
         // Fetch / merge and move target repository into monorepo
         const moveStatus = await useCommand('bash', [GIT_MOVE_SCRIPT, ...directoryOption, '-p', `/apps/${targetApplicationName}`]);
-        if (!moveStatus.success) await rollbackTransaction(branchName, workingBranch);
+        if (!moveStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
 
         // Move back master repository (from temporary directory)
         const rollbackStatus = await useCommand('bash', [GIT_ROLLBACK_SCRIPT, ...directoryOption, '-p', '.']);
-        if (!rollbackStatus.success) await rollbackTransaction(branchName, workingBranch);
+        if (!rollbackStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
 
         // Remove old container folder
         await useCommand('rm', ['-rf', tempDirectoryName]);
