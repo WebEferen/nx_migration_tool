@@ -15,7 +15,7 @@ export function createFiles(tree: Tree, options: IOptions) {
     const targetPaths = options.targetPaths || [];
     const testPaths = options.testPaths || [];
 
-    generateFiles(tree, path.join(__dirname, 'templates'), projectConfiguration.root, {
+    generateFiles(tree, path.join(__dirname, '../templates'), projectConfiguration.root, {
         js: 'js',
         json: 'json',
         eslintrc: '.eslintrc',
