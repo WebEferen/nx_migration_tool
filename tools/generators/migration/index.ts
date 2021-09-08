@@ -16,9 +16,9 @@ function getTargetOptions(options: IPrompts) {
 
 export default async function (tree: Tree, _: IGeneratorOptions) {
     const prompts = await getPrompts();
+    const { shouldGenerateApplication, workingBranch, targetApplicationName, tempDirectoryName } = prompts;
 
-    await useTransaction(async (branchName) => {
-        const { shouldGenerateApplication, workingBranch, targetApplicationName, tempDirectoryName } = prompts;
+    await useTransaction(workingBranch, async (branchName) => {
         const directoryOption = ['-d', tempDirectoryName];
 
         // Create NX application using useCommand wrapper
