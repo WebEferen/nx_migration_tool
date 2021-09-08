@@ -2,11 +2,11 @@ import * as uuid from 'uuid';
 
 import { useCommand } from './use-command';
 
-export async function rollbackTransaction(branchName: string, fallbackBranchName: string) {
+export async function rollbackTransaction(branchName: string, fallbackBranchName: string, directory: string) {
     await useCommand('git', ['reset', '--hard']);
     await useCommand('git', ['checkout', fallbackBranchName]);
     await useCommand('git', ['branch', '-D', branchName]);
-    await useCommand('rm', ['-rf', branchName]);
+    await useCommand('rm', ['-rf', directory]);
 
     throw new Error('Error during transaction... Aborting and rolling back (git-reset)');
 }
