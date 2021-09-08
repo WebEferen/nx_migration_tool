@@ -12,7 +12,7 @@ export async function rollbackTransaction(branchName: string, fallbackBranchName
 }
 
 export async function useTransaction(callback: (branchName: string) => Promise<void>) {
-    const branchName: string = uuid.v4().replace('-', '').slice(0, 16);
+    const branchName: string = uuid.v4().replace(/-/g, '').slice(0, 16);
 
     const branchChanged = await useCommand('git', ['checkout', '-b', branchName]);
     if (branchChanged.success) await callback(branchName).catch((_) => process.stdout.write('Error during transaction!'));
