@@ -1,5 +1,10 @@
 import { prompt } from 'enquirer';
 
+export const SCRIPT_DIR = __dirname + '/scripts/';
+export const GIT_MOVE_SCRIPT = SCRIPT_DIR + 'git-move.sh';
+export const GIT_REMOTE_SCRIPT = SCRIPT_DIR + 'git-remote.sh';
+export const GIT_ROLLBACK_SCRIPT = SCRIPT_DIR + 'git-rollback.sh';
+
 export interface IPrompts {
   generateApplication: boolean;
   tempDirectoryName: string;
