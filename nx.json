@@ -27,9 +27,6 @@
     ]
   },
   "projects": {
-    "spreadsheets-service": {
-      "tags": []
-    },
     "test-api": {
       "tags": []
     }
