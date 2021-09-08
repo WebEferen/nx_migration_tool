@@ -1,6 +1,6 @@
 import type { Tree } from '@nrwl/devkit';
 
-import { getPrompts, GIT_MOVE_SCRIPT, GIT_ROLLBACK_SCRIPT, GIT_REMOTE_SCRIPT, GIT_OTHERS_SCRIPT } from './constants';
+import { getPrompts, GIT_MOVE_SCRIPT, GIT_ROLLBACK_SCRIPT, GIT_REMOTE_SCRIPT } from './constants';
 import type { IPrompts } from './constants';
 import type { IGeneratorOptions } from './schema';
 import { manageDirectories, rollbackTransaction, useCommand, useTransaction } from './utils';
@@ -44,10 +44,6 @@ export default async function (tree: Tree, _: IGeneratorOptions) {
         // Move back master repository (from temporary directory)
         const rollbackStatus = await useCommand('bash', [GIT_ROLLBACK_SCRIPT, ...directoryOption, '-p', '.']);
         if (!rollbackStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
-
-        // Fetch / merge and move target repository into monorepo
-        const moveOthersStatus = await useCommand('bash', [GIT_OTHERS_SCRIPT, '-d', `apps/${targetApplicationName}`]);
-        if (!moveOthersStatus.success) await rollbackTransaction(branchName, workingBranch, tempDirectoryName);
 
         // Remove old container folder
         await useCommand('rm', ['-rf', tempDirectoryName]);
