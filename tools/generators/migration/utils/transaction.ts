@@ -15,7 +15,11 @@ export async function useTransaction(fallbackBranchName: string, callback: (bran
     const branchName: string = uuid.v4().replace(/-/g, '').slice(0, 16);
 
     const branchChanged = await useCommand('git', ['checkout', '-b', branchName]);
-    if (branchChanged.success) await callback(branchName).catch((_) => process.stdout.write('Error during transaction!'));
-    if (branchChanged.success) await useCommand('git', ['checkout', fallbackBranchName]);
-    if (branchChanged.success) await useCommand('git', ['branch', '-D', branchName]);
+    if (!branchChanged.success) throw new Error('Cannot change branch... Aborting!');
+
+    await callback(branchName).catch((_) => process.stdout.write('Error during transaction!'));
+    await useCommand('git', ['checkout', fallbackBranchName]);
+    await useCommand('git', ['merge', branchName]);
+
+    await useCommand('git', ['branch', '-D', branchName]);
 }
